@@ -1,0 +1,15 @@
+[submodule "packages/hip/hipmagma"]
+    path = packages/hip/hipmagma
+    url = https://github.com/rocm-arch/hipmagma.git
+
+[submodule "packages/pytorch/python-pytorch-rocm"]
+    path = packages/pytorch/python-pytorch-rocm
+    url = https://github.com/rocm-arch/python-pytorch-rocm.git
+
+[submodule "packages/pytorch/python-torchvision-rocm"]
+    path = packages/pytorch/python-torchvision-rocm
+    url = https://github.com/rocm-arch/python-torchvision-rocm.git
+
+[submodule "packages/rocm"]
+    path = packages/rocm
+    url = https://github.com/rocm-arch/rocm-arch.git

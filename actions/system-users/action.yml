@@ -1,0 +1,14 @@
+name: Create users
+
+runs:
+  using: "composite"
+
+  steps:
+    - name: Create non-root user
+      shell: bash
+      run: useradd user --groups wheel
+
+    - name: Configure sudoers
+      shell: bash
+      run: |-
+        echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers

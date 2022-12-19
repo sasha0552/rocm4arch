@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "rocm4arch"
+version = "0.1.0"
+description = ""
+authors = ["sasha0552 <admin@sasha0552.org>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+srcinfo = "^0.1.1"
+pyyaml = "^6.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

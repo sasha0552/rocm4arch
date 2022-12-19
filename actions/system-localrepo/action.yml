@@ -1,0 +1,24 @@
+name: Create local package repository
+
+runs:
+  using: "composite"
+
+  steps:
+    - name: Create directories
+      shell: bash
+      run: |-
+        mkdir -p "$HOME/artifacts/"
+        mkdir -p "$HOME/localrepo/"
+
+    - name: Initialize repository
+      shell: bash
+      run: repo-add "$HOME/localrepo/localrepo.db.tar"
+
+    - name: Add packages to the repository
+      shell: bash
+      run: |-
+        find "$HOME/artifacts/" -type f -name "*.pkg.tar.zst" -print0 |
+          while IFS= read -r -d "" line; do
+            ln -s "$line" "$HOME/localrepo/$(basename "$line")"
+            repo-add "$HOME/localrepo/localrepo.db.tar" "$HOME/localrepo/$(basename "$line")"
+          done

@@ -1,0 +1,27 @@
+name: Install required packages
+
+inputs:
+  additional:
+    description: "Additional packages to install"
+    required: false
+
+runs:
+  using: "composite"
+
+  steps:
+    - name: Refresh package databases
+      shell: bash
+      run: pacman --sync --noconfirm --refresh
+
+    - name: Install required packages
+      shell: bash
+      run: pacman --sync --noconfirm --needed git
+
+    - name: Install additional packages
+      shell: bash
+      run: pacman --sync --noconfirm --needed ${{ inputs.additional }}
+      if: "${{ inputs.additional != '' }}"
+
+    - name: Remove outdated packages from cache
+      shell: bash
+      run: paccache --keep 1 --remove

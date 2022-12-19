@@ -1,0 +1,27 @@
+name: Build package
+
+inputs:
+  package_path:
+    description: "Package path"
+    required: true
+
+runs:
+  using: "composite"
+
+  steps:
+    - name: Change owner of packages directory to user
+      shell: bash
+      run: chown --recursive user:root packages/
+
+    - name: Build package
+      shell: bash
+      run: |-
+        cd "${{ inputs.package_path }}"
+
+        su user --command "
+          makepkg --syncdeps --noconfirm
+        "
+
+    - name: Change owner of packages directory back to root
+      shell: bash
+      run: chown --recursive root:root packages/

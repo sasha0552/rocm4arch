@@ -1,0 +1,16 @@
+name: Install package repositories
+
+runs:
+  using: "composite"
+
+  steps:
+    - name: Install repository
+      shell: bash
+      run: |-
+        echo "[localrepo]"                     >> /etc/pacman.conf
+        echo "Server = file://$HOME/localrepo" >> /etc/pacman.conf
+        echo "SigLevel = Optional TrustAll "   >> /etc/pacman.conf
+
+    - name: Refresh package databases
+      shell: bash
+      run: pacman --sync --noconfirm --refresh
