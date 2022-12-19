@@ -115,43 +115,6 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  hip-runtime-nvidia:
-    container:
-      image: archlinux
-      options: --privileged
-    name: hip-runtime-nvidia
-    needs:
-    - rocm-llvm
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/hip-runtime-nvidia
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
   hipblas:
     container:
       image: archlinux
@@ -644,47 +607,6 @@ jobs:
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/miopen-hip
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  miopen-opencl:
-    container:
-      image: archlinux
-      options: --privileged
-    name: miopen-opencl
-    needs:
-    - rocblas
-    - rocm-llvm
-    - rocm-llvm-mlir
-    - rocm-cmake
-    - miopengemm
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/miopen-opencl
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:

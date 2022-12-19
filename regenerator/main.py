@@ -9,9 +9,7 @@ from template.action import action_template
 
 #####
 
-def resolve_package(fpath, info):
-    name = fpath.parents[0].name
-    path = str(fpath.parents[0])
+def resolve_package(name, path, info):
     altnames = []
     depends = []
 
@@ -111,6 +109,17 @@ def find_packages(path):
     #####
 
     for fpath in path.rglob(".SRCINFO"):
+        name = fpath.parents[0].name
+        path = str(fpath.parents[0])
+
+        #####
+
+        # TODO: hardcoded values
+        if name == "miopen-opencl" or name == "hip-runtime-nvidia":
+            continue
+
+        #####
+
         with open(fpath, "r") as file:
             content = file.read()
 
@@ -127,7 +136,7 @@ def find_packages(path):
 
         if len(errors) == 0:
             packages.append(
-                resolve_package(fpath, info)
+                resolve_package(name, path, info)
             )
 
     #####
