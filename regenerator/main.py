@@ -25,15 +25,27 @@ def resolve_package(fpath, info):
 
     #####
 
+    if "provides" in info:
+        altnames = altnames + info["provides"]
+
+    #####
+
     for key, value in info["packages"].items():
         if key != name:
             altnames.append(key)
+
+        #####
 
         if "depends" in value:
             depends = depends + value["depends"]
 
         if "makedepends" in value:
             depends = depends + value["makedepends"]
+
+        #####
+
+        if "provides" in value:
+            altnames = altnames + value["provides"]
 
     #####
 

@@ -158,6 +158,7 @@ jobs:
       options: --privileged
     name: hipblas
     needs:
+    - hip-runtime-amd
     - rocblas
     - rocsolver
     runs-on: ubuntu-latest
@@ -198,6 +199,7 @@ jobs:
     needs:
     - rocprim
     - rocm-cmake
+    - hip-runtime-amd
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -234,6 +236,7 @@ jobs:
       options: --privileged
     name: hipfft
     needs:
+    - hip-runtime-amd
     - rocfft
     runs-on: ubuntu-latest
     steps:
@@ -271,6 +274,7 @@ jobs:
       options: --privileged
     name: hipfort
     needs:
+    - hip-runtime-amd
     - rocm-cmake
     runs-on: ubuntu-latest
     steps:
@@ -382,6 +386,7 @@ jobs:
       options: --privileged
     name: hipsolver
     needs:
+    - hip-runtime-amd
     - rocsolver
     runs-on: ubuntu-latest
     steps:
@@ -419,6 +424,7 @@ jobs:
       options: --privileged
     name: hipsparse
     needs:
+    - hip-runtime-amd
     - rocsparse
     runs-on: ubuntu-latest
     steps:
@@ -567,6 +573,8 @@ jobs:
       options: --privileged
     name: migraphx
     needs:
+    - hip-runtime-amd
+    - miopen-hip
     - rocm-cmake
     runs-on: ubuntu-latest
     steps:
@@ -606,6 +614,7 @@ jobs:
     needs:
     - rocblas
     - rocm-clang-ocl
+    - hip-runtime-amd
     - rocm-llvm-mlir
     - rocm-cmake
     - miopengemm
@@ -803,6 +812,7 @@ jobs:
     - rccl
     - rocm-hip-sdk
     - roctracer
+    - miopen-hip
     - hipmagma
     runs-on: ubuntu-latest
     steps:
@@ -841,6 +851,7 @@ jobs:
     name: python-torchvision-rocm
     needs:
     - python-pytorch-rocm
+    - miopen-hip
     - rocm-hip-sdk
     runs-on: ubuntu-latest
     steps:
@@ -878,6 +889,7 @@ jobs:
       options: --privileged
     name: rccl
     needs:
+    - hip-runtime-amd
     - rocm-smi-lib
     runs-on: ubuntu-latest
     steps:
@@ -915,6 +927,7 @@ jobs:
       options: --privileged
     name: rocalution
     needs:
+    - hip-runtime-amd
     - rocsparse
     - rocblas
     - rocprim
@@ -956,6 +969,7 @@ jobs:
       options: --privileged
     name: rocblas
     needs:
+    - hip-runtime-amd
     - rocm-cmake
     runs-on: ubuntu-latest
     steps:
@@ -992,7 +1006,8 @@ jobs:
       image: archlinux
       options: --privileged
     name: rocfft
-    needs: []
+    needs:
+    - hip-runtime-amd
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -1216,6 +1231,7 @@ jobs:
       options: --privileged
     name: rocm-debug-agent
     needs:
+    - hip-runtime-amd
     - rocm-dbgapi
     runs-on: ubuntu-latest
     steps:
@@ -1629,7 +1645,8 @@ jobs:
       image: archlinux
       options: --privileged
     name: rocm-llvm-mlir
-    needs: []
+    needs:
+    - hip-runtime-amd
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -1859,6 +1876,7 @@ jobs:
       options: --privileged
     name: rocprim
     needs:
+    - hip-runtime-amd
     - rocm-cmake
     runs-on: ubuntu-latest
     steps:
@@ -1896,6 +1914,8 @@ jobs:
       options: --privileged
     name: rocprofiler
     needs:
+    - hip-runtime-amd
+    - hsa-amd-aqlprofile-bin
     - hsa-rocr
     runs-on: ubuntu-latest
     steps:
@@ -1932,7 +1952,8 @@ jobs:
       image: archlinux
       options: --privileged
     name: rocrand
-    needs: []
+    needs:
+    - hip-runtime-amd
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -1969,6 +1990,7 @@ jobs:
       options: --privileged
     name: rocsolver
     needs:
+    - hip-runtime-amd
     - rocblas
     - rocm-cmake
     runs-on: ubuntu-latest
@@ -2007,6 +2029,7 @@ jobs:
       options: --privileged
     name: rocsparse
     needs:
+    - hip-runtime-amd
     - rocprim
     runs-on: ubuntu-latest
     steps:
@@ -2044,6 +2067,7 @@ jobs:
       options: --privileged
     name: rocthrust
     needs:
+    - hip-runtime-amd
     - rocprim
     - rocm-cmake
     runs-on: ubuntu-latest
@@ -2082,6 +2106,7 @@ jobs:
       options: --privileged
     name: roctracer
     needs:
+    - hip-runtime-amd
     - rocprofiler
     runs-on: ubuntu-latest
     steps:
@@ -2119,6 +2144,7 @@ jobs:
       options: --privileged
     name: rocwmma
     needs:
+    - hip-runtime-amd
     - rocblas
     - rocm-cmake
     runs-on: ubuntu-latest
