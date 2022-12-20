@@ -539,7 +539,7 @@ jobs:
     needs:
     - _32
     - _41
-    runs-on: self-hosted
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1137,7 +1137,7 @@ jobs:
     needs:
     - _31
     - _33
-    runs-on: self-hosted
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1559,7 +1559,7 @@ jobs:
     needs:
     - _17
     - _33
-    runs-on: self-hosted
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -2172,7 +2172,7 @@ jobs:
     name: rocfft
     needs:
     - _33
-    runs-on: self-hosted
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
