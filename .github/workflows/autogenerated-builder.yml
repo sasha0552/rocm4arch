@@ -1109,7 +1109,7 @@ jobs:
       image: archlinux
     name: rocm-llvm
     needs: []
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3

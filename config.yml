@@ -13,5 +13,8 @@ overrides:
     rocfft:
         runs-on: self-hosted
 
+    rocm-llvm:
+        runs-on: self-hosted
+
     rocsolver:
         runs-on: self-hosted
