@@ -10,14 +10,20 @@ overrides:
     miopen-opencl:
         build: false
 
-    #openmp-extras:
-    #    runs-on: self-hosted
+    openmp-extras:
+        build: false
 
-    #rccl:
-    #    runs-on: self-hosted
+    rocm-gdb:
+        build: false
 
-    #rocblas:
-    #    runs-on: self-hosted
+    rccl:
+        runs-on: self-hosted
 
-    #rocfft:
-    #    runs-on: self-hosted
+    rocblas:
+        runs-on: self-hosted
+
+    rocfft:
+        runs-on: self-hosted
+
+    rocsolver:
+        runs-on: self-hosted
