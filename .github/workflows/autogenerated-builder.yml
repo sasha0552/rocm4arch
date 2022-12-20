@@ -2,7 +2,6 @@ jobs:
   _0:
     container:
       image: archlinux
-      options: --privileged
     name: python-pytorch-rocm
     needs:
     - _12
@@ -45,7 +44,6 @@ jobs:
   _1:
     container:
       image: archlinux
-      options: --privileged
     name: python-torchvision-rocm
     needs:
     - _0
@@ -86,7 +84,6 @@ jobs:
   _10:
     container:
       image: archlinux
-      options: --privileged
     name: miopengemm
     needs:
     - _18
@@ -125,7 +122,6 @@ jobs:
   _11:
     container:
       image: archlinux
-      options: --privileged
     name: rocthrust
     needs:
     - _18
@@ -166,7 +162,6 @@ jobs:
   _12:
     container:
       image: archlinux
-      options: --privileged
     name: rocm-hip-sdk
     needs:
     - _11
@@ -223,7 +218,6 @@ jobs:
   _13:
     container:
       image: archlinux
-      options: --privileged
     name: miopen-opencl
     needs:
     - _10
@@ -266,7 +260,6 @@ jobs:
   _14:
     container:
       image: archlinux
-      options: --privileged
     name: rocm-core
     needs: []
     runs-on: ubuntu-latest
@@ -304,7 +297,6 @@ jobs:
   _15:
     container:
       image: archlinux
-      options: --privileged
     name: rocm-llvm-alt-bin
     needs: []
     runs-on: ubuntu-latest
@@ -342,7 +334,6 @@ jobs:
   _16:
     container:
       image: archlinux
-      options: --privileged
     name: rocm-gdb
     needs:
     - _3
@@ -382,7 +373,6 @@ jobs:
   _17:
     container:
       image: archlinux
-      options: --privileged
     name: hipblas
     needs:
     - _35
@@ -423,7 +413,6 @@ jobs:
   _18:
     container:
       image: archlinux
-      options: --privileged
     name: rocm-cmake
     needs: []
     runs-on: ubuntu-latest
@@ -461,7 +450,6 @@ jobs:
   _19:
     container:
       image: archlinux
-      options: --privileged
     name: rocm-llvm-mlir
     needs:
     - _35
@@ -500,7 +488,6 @@ jobs:
   _2:
     container:
       image: archlinux
-      options: --privileged
     name: python-cppheaderparser
     needs: []
     runs-on: ubuntu-latest
@@ -538,7 +525,6 @@ jobs:
   _20:
     container:
       image: archlinux
-      options: --privileged
     name: rocm-bandwidth-test
     needs:
     - _43
@@ -577,7 +563,6 @@ jobs:
   _21:
     container:
       image: archlinux
-      options: --privileged
     name: hip-runtime-nvidia
     needs:
     - _34
@@ -616,7 +601,6 @@ jobs:
   _22:
     container:
       image: archlinux
-      options: --privileged
     name: openmp-extras
     needs:
     - _34
@@ -656,7 +640,6 @@ jobs:
   _23:
     container:
       image: archlinux
-      options: --privileged
     name: rocprim
     needs:
     - _18
@@ -696,7 +679,6 @@ jobs:
   _24:
     container:
       image: archlinux
-      options: --privileged
     name: rocm-language-runtime
     needs:
     - _14
@@ -739,7 +721,6 @@ jobs:
   _25:
     container:
       image: archlinux
-      options: --privileged
     name: hsakmt-roct
     needs: []
     runs-on: ubuntu-latest
@@ -777,7 +758,6 @@ jobs:
   _26:
     container:
       image: archlinux
-      options: --privileged
     name: rocsparse
     needs:
     - _23
@@ -817,7 +797,6 @@ jobs:
   _27:
     container:
       image: archlinux
-      options: --privileged
     name: mivisionx
     needs:
     - _18
@@ -858,7 +837,6 @@ jobs:
   _28:
     container:
       image: archlinux
-      options: --privileged
     name: hipsparse
     needs:
     - _26
@@ -898,7 +876,6 @@ jobs:
   _29:
     container:
       image: archlinux
-      options: --privileged
     name: migraphx
     needs:
     - _18
@@ -939,7 +916,6 @@ jobs:
   _3:
     container:
       image: archlinux
-      options: --privileged
     name: guile2.0
     needs: []
     runs-on: ubuntu-latest
@@ -977,7 +953,6 @@ jobs:
   _30:
     container:
       image: archlinux
-      options: --privileged
     name: rocrand
     needs:
     - _35
@@ -1016,7 +991,6 @@ jobs:
   _31:
     container:
       image: archlinux
-      options: --privileged
     name: hipify-clang
     needs:
     - _34
@@ -1055,7 +1029,6 @@ jobs:
   _32:
     container:
       image: archlinux
-      options: --privileged
     name: rocwmma
     needs:
     - _18
@@ -1096,7 +1069,6 @@ jobs:
   _33:
     container:
       image: archlinux
-      options: --privileged
     name: rocm-smi-lib
     needs:
     - _43
@@ -1135,7 +1107,6 @@ jobs:
   _34:
     container:
       image: archlinux
-      options: --privileged
     name: rocm-llvm
     needs: []
     runs-on: ubuntu-latest
@@ -1173,7 +1144,6 @@ jobs:
   _35:
     container:
       image: archlinux
-      options: --privileged
     name: hip-runtime-amd
     needs:
     - _34
@@ -1214,7 +1184,6 @@ jobs:
   _36:
     container:
       image: archlinux
-      options: --privileged
     name: rccl
     needs:
     - _33
@@ -1254,7 +1223,6 @@ jobs:
   _37:
     container:
       image: archlinux
-      options: --privileged
     name: hipfort
     needs:
     - _18
@@ -1294,7 +1262,6 @@ jobs:
   _38:
     container:
       image: archlinux
-      options: --privileged
     name: atmi
     needs:
     - _43
@@ -1334,7 +1301,6 @@ jobs:
   _39:
     container:
       image: archlinux
-      options: --privileged
     name: rocm-hip-libraries
     needs:
     - _14
@@ -1385,7 +1351,6 @@ jobs:
   _4:
     container:
       image: archlinux
-      options: --privileged
     name: roctracer
     needs:
     - _2
@@ -1426,7 +1391,6 @@ jobs:
   _40:
     container:
       image: archlinux
-      options: --privileged
     name: miopen-hip
     needs:
     - _10
@@ -1470,7 +1434,6 @@ jobs:
   _41:
     container:
       image: archlinux
-      options: --privileged
     name: rocm-hip-runtime
     needs:
     - _14
@@ -1514,7 +1477,6 @@ jobs:
   _42:
     container:
       image: archlinux
-      options: --privileged
     name: rocm-debug-agent
     needs:
     - _35
@@ -1554,7 +1516,6 @@ jobs:
   _43:
     container:
       image: archlinux
-      options: --privileged
     name: hsa-rocr
     needs:
     - _25
@@ -1595,7 +1556,6 @@ jobs:
   _44:
     container:
       image: archlinux
-      options: --privileged
     name: rocsolver
     needs:
     - _18
@@ -1636,7 +1596,6 @@ jobs:
   _45:
     container:
       image: archlinux
-      options: --privileged
     name: rocblas
     needs:
     - _18
@@ -1676,7 +1635,6 @@ jobs:
   _46:
     container:
       image: archlinux
-      options: --privileged
     name: rocm-opencl-runtime
     needs:
     - _18
@@ -1718,7 +1676,6 @@ jobs:
   _47:
     container:
       image: archlinux
-      options: --privileged
     name: hsa-amd-aqlprofile-bin
     needs: []
     runs-on: ubuntu-latest
@@ -1756,7 +1713,6 @@ jobs:
   _48:
     container:
       image: archlinux
-      options: --privileged
     name: rocminfo
     needs:
     - _18
@@ -1796,7 +1752,6 @@ jobs:
   _49:
     container:
       image: archlinux
-      options: --privileged
     name: hipfft
     needs:
     - _35
@@ -1836,7 +1791,6 @@ jobs:
   _5:
     container:
       image: archlinux
-      options: --privileged
     name: rocm-device-libs
     needs:
     - _18
@@ -1876,7 +1830,6 @@ jobs:
   _50:
     container:
       image: archlinux
-      options: --privileged
     name: rocm-validation-suite
     needs:
     - _33
@@ -1916,7 +1869,6 @@ jobs:
   _51:
     container:
       image: archlinux
-      options: --privileged
     name: rocm-developer-tools
     needs:
     - _12
@@ -1961,7 +1913,6 @@ jobs:
   _52:
     container:
       image: archlinux
-      options: --privileged
     name: hipsolver
     needs:
     - _35
@@ -2001,7 +1952,6 @@ jobs:
   _53:
     container:
       image: archlinux
-      options: --privileged
     name: rocm-opencl-sdk
     needs:
     - _14
@@ -2043,7 +1993,6 @@ jobs:
   _54:
     container:
       image: archlinux
-      options: --privileged
     name: hipcub
     needs:
     - _18
@@ -2084,7 +2033,6 @@ jobs:
   _55:
     container:
       image: archlinux
-      options: --privileged
     name: rocprofiler
     needs:
     - _2
@@ -2126,7 +2074,6 @@ jobs:
   _56:
     container:
       image: archlinux
-      options: --privileged
     name: rocalution
     needs:
     - _18
@@ -2170,7 +2117,6 @@ jobs:
   _57:
     container:
       image: archlinux
-      options: --privileged
     name: hipmagma
     needs:
     - _12
@@ -2209,7 +2155,6 @@ jobs:
   _6:
     container:
       image: archlinux
-      options: --privileged
     name: rocm-dbgapi
     needs:
     - _18
@@ -2250,7 +2195,6 @@ jobs:
   _7:
     container:
       image: archlinux
-      options: --privileged
     name: rocfft
     needs:
     - _35
@@ -2289,7 +2233,6 @@ jobs:
   _8:
     container:
       image: archlinux
-      options: --privileged
     name: comgr
     needs:
     - _18
@@ -2330,7 +2273,6 @@ jobs:
   _9:
     container:
       image: archlinux
-      options: --privileged
     name: rocm-clang-ocl
     needs:
     - _18

@@ -5,8 +5,7 @@ def job_template(name, path, needs, runs_on):
         "runs-on": runs_on,
 
         "container": {
-            "image": "archlinux",
-            "options": "--privileged"
+            "image": "archlinux"
         },
 
         "steps": [

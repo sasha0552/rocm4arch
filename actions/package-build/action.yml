@@ -9,9 +9,9 @@ runs:
   using: "composite"
 
   steps:
-    - name: Change owner of packages directory to user
+    - name: Change owner and group of packages directory to user
       shell: bash
-      run: chown --recursive user:root packages/
+      run: chown --recursive user:user packages/
 
     - name: Build package
       shell: bash
@@ -22,6 +22,6 @@ runs:
           makepkg --syncdeps --noconfirm
         "
 
-    - name: Change owner of packages directory back to root
+    - name: Change owner and group of packages directory back to root
       shell: bash
       run: chown --recursive root:root packages/
