@@ -1,813 +1,15 @@
 jobs:
-  atmi:
-    container:
-      image: archlinux
-      options: --privileged
-    name: atmi
-    needs:
-    - hsa-rocr
-    - comgr
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/atmi
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  comgr:
-    container:
-      image: archlinux
-      options: --privileged
-    name: comgr
-    needs:
-    - rocm-device-libs
-    - rocm-cmake
-    - rocm-llvm
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/comgr
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  guile2.0:
-    container:
-      image: archlinux
-      options: --privileged
-    name: guile2.0
-    needs: []
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/aur/guile2.0
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  hip-runtime-amd:
-    container:
-      image: archlinux
-      options: --privileged
-    name: hip-runtime-amd
-    needs:
-    - comgr
-    - rocminfo
-    - rocm-llvm
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/hip-runtime-amd
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  hipblas:
-    container:
-      image: archlinux
-      options: --privileged
-    name: hipblas
-    needs:
-    - hip-runtime-amd
-    - rocblas
-    - rocsolver
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/hipblas
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  hipcub:
-    container:
-      image: archlinux
-      options: --privileged
-    name: hipcub
-    needs:
-    - rocprim
-    - rocm-cmake
-    - hip-runtime-amd
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/hipcub
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  hipfft:
-    container:
-      image: archlinux
-      options: --privileged
-    name: hipfft
-    needs:
-    - hip-runtime-amd
-    - rocfft
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/hipfft
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  hipfort:
-    container:
-      image: archlinux
-      options: --privileged
-    name: hipfort
-    needs:
-    - hip-runtime-amd
-    - rocm-cmake
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/hipfort
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  hipify-clang:
-    container:
-      image: archlinux
-      options: --privileged
-    name: hipify-clang
-    needs:
-    - rocm-llvm
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/hipify-clang
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  hipmagma:
-    container:
-      image: archlinux
-      options: --privileged
-    name: hipmagma
-    needs:
-    - rocm-hip-sdk
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/hip/hipmagma
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  hipsolver:
-    container:
-      image: archlinux
-      options: --privileged
-    name: hipsolver
-    needs:
-    - hip-runtime-amd
-    - rocsolver
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/hipsolver
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  hipsparse:
-    container:
-      image: archlinux
-      options: --privileged
-    name: hipsparse
-    needs:
-    - hip-runtime-amd
-    - rocsparse
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/hipsparse
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  hsa-amd-aqlprofile-bin:
-    container:
-      image: archlinux
-      options: --privileged
-    name: hsa-amd-aqlprofile-bin
-    needs: []
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/hsa-amd-aqlprofile-bin
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  hsa-rocr:
-    container:
-      image: archlinux
-      options: --privileged
-    name: hsa-rocr
-    needs:
-    - hsakmt-roct
-    - rocm-device-libs
-    - rocm-llvm
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/hsa-rocr
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  hsakmt-roct:
-    container:
-      image: archlinux
-      options: --privileged
-    name: hsakmt-roct
-    needs: []
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/hsakmt-roct
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  migraphx:
-    container:
-      image: archlinux
-      options: --privileged
-    name: migraphx
-    needs:
-    - hip-runtime-amd
-    - miopen-hip
-    - rocm-cmake
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/migraphx
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  miopen-hip:
-    container:
-      image: archlinux
-      options: --privileged
-    name: miopen-hip
-    needs:
-    - rocblas
-    - rocm-clang-ocl
-    - hip-runtime-amd
-    - rocm-llvm-mlir
-    - rocm-cmake
-    - miopengemm
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/miopen-hip
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  miopengemm:
-    container:
-      image: archlinux
-      options: --privileged
-    name: miopengemm
-    needs:
-    - rocm-cmake
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/miopengemm
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  mivisionx:
-    container:
-      image: archlinux
-      options: --privileged
-    name: mivisionx
-    needs:
-    - miopen-hip
-    - migraphx
-    - rocm-cmake
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/mivisionx
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  openmp-extras:
-    container:
-      image: archlinux
-      options: --privileged
-    name: openmp-extras
-    needs:
-    - hsa-rocr
-    - rocm-llvm
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/openmp-extras
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  python-cppheaderparser:
-    container:
-      image: archlinux
-      options: --privileged
-    name: python-cppheaderparser
-    needs: []
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/aur/python-cppheaderparser
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  python-pytorch-rocm:
+  _0:
     container:
       image: archlinux
       options: --privileged
     name: python-pytorch-rocm
     needs:
-    - rccl
-    - rocm-hip-sdk
-    - roctracer
-    - miopen-hip
-    - hipmagma
+    - _34
+    - _12
+    - _4
+    - _38
+    - _55
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -838,15 +40,15 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  python-torchvision-rocm:
+  _1:
     container:
       image: archlinux
       options: --privileged
     name: python-torchvision-rocm
     needs:
-    - python-pytorch-rocm
-    - miopen-hip
-    - rocm-hip-sdk
+    - _0
+    - _38
+    - _12
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -877,14 +79,13 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  rccl:
+  _10:
     container:
       image: archlinux
       options: --privileged
-    name: rccl
+    name: miopengemm
     needs:
-    - hip-runtime-amd
-    - rocm-smi-lib
+    - _17
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -910,23 +111,20 @@ jobs:
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
-        package_path: packages/rocm/rccl
+        package_path: packages/rocm/miopengemm
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  rocalution:
+  _11:
     container:
       image: archlinux
       options: --privileged
-    name: rocalution
+    name: rocthrust
     needs:
-    - hip-runtime-amd
-    - rocsparse
-    - rocblas
-    - rocprim
-    - rocrand
-    - rocm-cmake
+    - _33
+    - _21
+    - _17
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -952,19 +150,36 @@ jobs:
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
-        package_path: packages/rocm/rocalution
+        package_path: packages/rocm/rocthrust
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  rocblas:
+  _12:
     container:
       image: archlinux
       options: --privileged
-    name: rocblas
+    name: rocm-hip-sdk
     needs:
-    - hip-runtime-amd
-    - rocm-cmake
+    - _37
+    - _32
+    - _13
+    - _39
+    - _16
+    - _52
+    - _47
+    - _26
+    - _50
+    - _38
+    - _34
+    - _54
+    - _43
+    - _7
+    - _21
+    - _28
+    - _42
+    - _24
+    - _11
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -990,161 +205,12 @@ jobs:
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
-        package_path: packages/rocm/rocblas
+        package_path: packages/rocm/rocm-hip-sdk
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  rocfft:
-    container:
-      image: archlinux
-      options: --privileged
-    name: rocfft
-    needs:
-    - hip-runtime-amd
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocfft
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  rocm-bandwidth-test:
-    container:
-      image: archlinux
-      options: --privileged
-    name: rocm-bandwidth-test
-    needs:
-    - hsa-rocr
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocm-bandwidth-test
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  rocm-clang-ocl:
-    container:
-      image: archlinux
-      options: --privileged
-    name: rocm-clang-ocl
-    needs:
-    - rocm-llvm
-    - rocm-opencl-runtime
-    - rocm-cmake
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocm-clang-ocl
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  rocm-cmake:
-    container:
-      image: archlinux
-      options: --privileged
-    name: rocm-cmake
-    needs: []
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocm-cmake
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  rocm-core:
+  _13:
     container:
       image: archlinux
       options: --privileged
@@ -1180,426 +246,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  rocm-dbgapi:
-    container:
-      image: archlinux
-      options: --privileged
-    name: rocm-dbgapi
-    needs:
-    - comgr
-    - hsa-rocr
-    - rocm-cmake
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocm-dbgapi
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  rocm-debug-agent:
-    container:
-      image: archlinux
-      options: --privileged
-    name: rocm-debug-agent
-    needs:
-    - hip-runtime-amd
-    - rocm-dbgapi
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocm-debug-agent
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  rocm-developer-tools:
-    container:
-      image: archlinux
-      options: --privileged
-    name: rocm-developer-tools
-    needs:
-    - rocm-core
-    - rocm-hip-sdk
-    - rocprofiler
-    - roctracer
-    - rocm-gdb
-    - rocm-dbgapi
-    - rocm-debug-agent
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocm-developer-tools
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  rocm-device-libs:
-    container:
-      image: archlinux
-      options: --privileged
-    name: rocm-device-libs
-    needs:
-    - rocm-cmake
-    - rocm-llvm
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocm-device-libs
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  rocm-gdb:
-    container:
-      image: archlinux
-      options: --privileged
-    name: rocm-gdb
-    needs:
-    - rocm-dbgapi
-    - guile2.0
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocm-gdb
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  rocm-hip-libraries:
-    container:
-      image: archlinux
-      options: --privileged
-    name: rocm-hip-libraries
-    needs:
-    - rocm-core
-    - rocm-hip-runtime
-    - hipblas
-    - hipfft
-    - hipsparse
-    - hipsolver
-    - rccl
-    - rocalution
-    - rocblas
-    - rocfft
-    - rocrand
-    - rocsolver
-    - rocsparse
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocm-hip-libraries
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  rocm-hip-runtime:
-    container:
-      image: archlinux
-      options: --privileged
-    name: rocm-hip-runtime
-    needs:
-    - rocm-core
-    - rocm-language-runtime
-    - rocminfo
-    - hip-runtime-amd
-    - rocm-llvm
-    - rocm-cmake
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocm-hip-runtime
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  rocm-hip-sdk:
-    container:
-      image: archlinux
-      options: --privileged
-    name: rocm-hip-sdk
-    needs:
-    - rocm-hip-libraries
-    - rocm-llvm
-    - rocm-core
-    - rocm-hip-runtime
-    - hipblas
-    - hipcub
-    - hipfft
-    - hipsparse
-    - hipsolver
-    - miopen-hip
-    - rccl
-    - rocalution
-    - rocblas
-    - rocfft
-    - rocprim
-    - rocrand
-    - rocsolver
-    - rocsparse
-    - rocthrust
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocm-hip-sdk
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  rocm-language-runtime:
-    container:
-      image: archlinux
-      options: --privileged
-    name: rocm-language-runtime
-    needs:
-    - rocm-core
-    - hsakmt-roct
-    - hsa-rocr
-    - rocm-device-libs
-    - comgr
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocm-language-runtime
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  rocm-llvm:
-    container:
-      image: archlinux
-      options: --privileged
-    name: rocm-llvm
-    needs: []
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocm-llvm
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  rocm-llvm-alt-bin:
+  _14:
     container:
       image: archlinux
       options: --privileged
@@ -1635,13 +282,126 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  rocm-llvm-mlir:
+  _15:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocm-gdb
+    needs:
+    - _6
+    - _3
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocm-gdb
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _16:
+    container:
+      image: archlinux
+      options: --privileged
+    name: hipblas
+    needs:
+    - _33
+    - _43
+    - _42
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/hipblas
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _17:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocm-cmake
+    needs: []
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocm-cmake
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _18:
     container:
       image: archlinux
       options: --privileged
     name: rocm-llvm-mlir
     needs:
-    - hip-runtime-amd
+    - _33
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -1672,16 +432,13 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  rocm-opencl-runtime:
+  _19:
     container:
       image: archlinux
       options: --privileged
-    name: rocm-opencl-runtime
+    name: rocm-bandwidth-test
     needs:
-    - hsakmt-roct
-    - hsa-rocr
-    - comgr
-    - rocm-cmake
+    - _41
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -1707,21 +464,17 @@ jobs:
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
-        package_path: packages/rocm/rocm-opencl-runtime
+        package_path: packages/rocm/rocm-bandwidth-test
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  rocm-opencl-sdk:
+  _2:
     container:
       image: archlinux
       options: --privileged
-    name: rocm-opencl-sdk
-    needs:
-    - rocm-core
-    - rocm-language-runtime
-    - rocm-opencl-runtime
-    - rocm-llvm
+    name: python-cppheaderparser
+    needs: []
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -1747,18 +500,19 @@ jobs:
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
-        package_path: packages/rocm/rocm-opencl-sdk
+        package_path: packages/aur/python-cppheaderparser
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  rocm-smi-lib:
+  _20:
     container:
       image: archlinux
       options: --privileged
-    name: rocm-smi-lib
+    name: openmp-extras
     needs:
-    - hsa-rocr
+    - _41
+    - _32
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -1784,95 +538,19 @@ jobs:
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
-        package_path: packages/rocm/rocm-smi-lib
+        package_path: packages/rocm/openmp-extras
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  rocm-validation-suite:
-    container:
-      image: archlinux
-      options: --privileged
-    name: rocm-validation-suite
-    needs:
-    - rocblas
-    - rocm-smi-lib
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocm-validation-suite
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  rocminfo:
-    container:
-      image: archlinux
-      options: --privileged
-    name: rocminfo
-    needs:
-    - hsa-rocr
-    - rocm-cmake
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocminfo
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  rocprim:
+  _21:
     container:
       image: archlinux
       options: --privileged
     name: rocprim
     needs:
-    - hip-runtime-amd
-    - rocm-cmake
+    - _33
+    - _17
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -1903,16 +581,17 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  rocprofiler:
+  _22:
     container:
       image: archlinux
       options: --privileged
-    name: rocprofiler
+    name: rocm-language-runtime
     needs:
-    - hip-runtime-amd
-    - hsa-amd-aqlprofile-bin
-    - python-cppheaderparser
-    - hsa-rocr
+    - _13
+    - _23
+    - _41
+    - _5
+    - _8
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -1938,18 +617,17 @@ jobs:
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
-        package_path: packages/rocm/rocprofiler
+        package_path: packages/rocm/rocm-language-runtime
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  rocrand:
+  _23:
     container:
       image: archlinux
       options: --privileged
-    name: rocrand
-    needs:
-    - hip-runtime-amd
+    name: hsakmt-roct
+    needs: []
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -1975,58 +653,19 @@ jobs:
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
-        package_path: packages/rocm/rocrand
+        package_path: packages/rocm/hsakmt-roct
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  rocsolver:
-    container:
-      image: archlinux
-      options: --privileged
-    name: rocsolver
-    needs:
-    - hip-runtime-amd
-    - rocblas
-    - rocm-cmake
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocsolver
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  rocsparse:
+  _24:
     container:
       image: archlinux
       options: --privileged
     name: rocsparse
     needs:
-    - hip-runtime-amd
-    - rocprim
+    - _33
+    - _21
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -2057,15 +696,15 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  rocthrust:
+  _25:
     container:
       image: archlinux
       options: --privileged
-    name: rocthrust
+    name: mivisionx
     needs:
-    - hip-runtime-amd
-    - rocprim
-    - rocm-cmake
+    - _38
+    - _27
+    - _17
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -2091,20 +730,605 @@ jobs:
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
-        package_path: packages/rocm/rocthrust
+        package_path: packages/rocm/mivisionx
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  roctracer:
+  _26:
+    container:
+      image: archlinux
+      options: --privileged
+    name: hipsparse
+    needs:
+    - _33
+    - _24
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/hipsparse
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _27:
+    container:
+      image: archlinux
+      options: --privileged
+    name: migraphx
+    needs:
+    - _33
+    - _38
+    - _17
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/migraphx
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _28:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocrand
+    needs:
+    - _33
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocrand
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _29:
+    container:
+      image: archlinux
+      options: --privileged
+    name: hipify-clang
+    needs:
+    - _32
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/hipify-clang
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _3:
+    container:
+      image: archlinux
+      options: --privileged
+    name: guile2.0
+    needs: []
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/aur/guile2.0
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _30:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocwmma
+    needs:
+    - _33
+    - _43
+    - _17
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocwmma
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _31:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocm-smi-lib
+    needs:
+    - _41
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocm-smi-lib
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _32:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocm-llvm
+    needs: []
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocm-llvm
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _33:
+    container:
+      image: archlinux
+      options: --privileged
+    name: hip-runtime-amd
+    needs:
+    - _8
+    - _46
+    - _32
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/hip-runtime-amd
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _34:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rccl
+    needs:
+    - _33
+    - _31
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rccl
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _35:
+    container:
+      image: archlinux
+      options: --privileged
+    name: hipfort
+    needs:
+    - _33
+    - _17
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/hipfort
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _36:
+    container:
+      image: archlinux
+      options: --privileged
+    name: atmi
+    needs:
+    - _41
+    - _8
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/atmi
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _37:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocm-hip-libraries
+    needs:
+    - _13
+    - _39
+    - _16
+    - _47
+    - _26
+    - _50
+    - _34
+    - _54
+    - _43
+    - _7
+    - _28
+    - _42
+    - _24
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocm-hip-libraries
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _38:
+    container:
+      image: archlinux
+      options: --privileged
+    name: miopen-hip
+    needs:
+    - _43
+    - _9
+    - _33
+    - _18
+    - _17
+    - _10
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/miopen-hip
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _39:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocm-hip-runtime
+    needs:
+    - _13
+    - _22
+    - _46
+    - _33
+    - _32
+    - _17
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocm-hip-runtime
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _4:
     container:
       image: archlinux
       options: --privileged
     name: roctracer
     needs:
-    - hip-runtime-amd
-    - rocprofiler
-    - python-cppheaderparser
+    - _33
+    - _53
+    - _2
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -2135,15 +1359,14 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  rocwmma:
+  _40:
     container:
       image: archlinux
       options: --privileged
-    name: rocwmma
+    name: rocm-debug-agent
     needs:
-    - hip-runtime-amd
-    - rocblas
-    - rocm-cmake
+    - _33
+    - _6
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -2169,7 +1392,784 @@ jobs:
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
-        package_path: packages/rocm/rocwmma
+        package_path: packages/rocm/rocm-debug-agent
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _41:
+    container:
+      image: archlinux
+      options: --privileged
+    name: hsa-rocr
+    needs:
+    - _23
+    - _5
+    - _32
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/hsa-rocr
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _42:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocsolver
+    needs:
+    - _33
+    - _43
+    - _17
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocsolver
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _43:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocblas
+    needs:
+    - _33
+    - _17
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocblas
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _44:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocm-opencl-runtime
+    needs:
+    - _23
+    - _41
+    - _8
+    - _17
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocm-opencl-runtime
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _45:
+    container:
+      image: archlinux
+      options: --privileged
+    name: hsa-amd-aqlprofile-bin
+    needs: []
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/hsa-amd-aqlprofile-bin
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _46:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocminfo
+    needs:
+    - _41
+    - _17
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocminfo
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _47:
+    container:
+      image: archlinux
+      options: --privileged
+    name: hipfft
+    needs:
+    - _33
+    - _7
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/hipfft
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _48:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocm-validation-suite
+    needs:
+    - _43
+    - _31
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocm-validation-suite
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _49:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocm-developer-tools
+    needs:
+    - _13
+    - _12
+    - _53
+    - _4
+    - _15
+    - _6
+    - _40
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocm-developer-tools
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _5:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocm-device-libs
+    needs:
+    - _17
+    - _32
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocm-device-libs
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _50:
+    container:
+      image: archlinux
+      options: --privileged
+    name: hipsolver
+    needs:
+    - _33
+    - _42
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/hipsolver
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _51:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocm-opencl-sdk
+    needs:
+    - _13
+    - _22
+    - _44
+    - _32
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocm-opencl-sdk
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _52:
+    container:
+      image: archlinux
+      options: --privileged
+    name: hipcub
+    needs:
+    - _21
+    - _17
+    - _33
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/hipcub
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _53:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocprofiler
+    needs:
+    - _33
+    - _45
+    - _2
+    - _41
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocprofiler
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _54:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocalution
+    needs:
+    - _33
+    - _24
+    - _43
+    - _21
+    - _28
+    - _17
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocalution
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _55:
+    container:
+      image: archlinux
+      options: --privileged
+    name: hipmagma
+    needs:
+    - _12
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/hip/hipmagma
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _6:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocm-dbgapi
+    needs:
+    - _8
+    - _41
+    - _17
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocm-dbgapi
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _7:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocfft
+    needs:
+    - _33
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocfft
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _8:
+    container:
+      image: archlinux
+      options: --privileged
+    name: comgr
+    needs:
+    - _5
+    - _17
+    - _32
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/comgr
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _9:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocm-clang-ocl
+    needs:
+    - _32
+    - _44
+    - _17
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocm-clang-ocl
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:

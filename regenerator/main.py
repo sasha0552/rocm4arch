@@ -103,6 +103,30 @@ def cleanup_packages(packages):
 
     return packages
 
+def obfuscate_packages(packages):
+    obf_names = {}
+
+    #####
+
+    for index, package in enumerate(packages):
+        package["original_name"] = package["name"]
+        package["name"] = "_" + str(index)
+
+        obf_names[package["original_name"]] = package["name"]
+
+    #####
+
+    for package in packages:
+        dependencies = package["depends"]
+
+        for i, dependency in enumerate(dependencies):
+            if dependency in obf_names:
+                dependencies[i] = obf_names[dependency]
+
+    #####
+
+    return packages
+
 def find_packages(path):
     packages = []
 
@@ -141,7 +165,11 @@ def find_packages(path):
 
     #####
 
-    return cleanup_packages(packages)
+    return obfuscate_packages(
+        cleanup_packages(
+            packages
+        )
+    )
 
 #####
 
@@ -149,7 +177,7 @@ if __name__ == "__main__":
     jobs = {}
 
     for package in find_packages(Path("packages")):
-        jobs[package["name"]] = job_template(package["name"], package["path"], package["depends"], "ubuntu-latest")
+        jobs[package["name"]] = job_template(package["original_name"], package["path"], package["depends"], "ubuntu-latest")
 
     #####
 
