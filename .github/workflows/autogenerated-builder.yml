@@ -6,11 +6,11 @@ jobs:
     name: python-pytorch-rocm
     needs:
     - _12
-    - _32
     - _36
     - _4
-    - _53
-    runs-on: ubuntu-20.04
+    - _40
+    - _57
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -50,8 +50,8 @@ jobs:
     needs:
     - _0
     - _12
-    - _36
-    runs-on: ubuntu-20.04
+    - _40
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -89,8 +89,8 @@ jobs:
       options: --privileged
     name: miopengemm
     needs:
-    - _16
-    runs-on: ubuntu-20.04
+    - _18
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -128,10 +128,10 @@ jobs:
       options: --privileged
     name: rocthrust
     needs:
-    - _16
-    - _19
-    - _31
-    runs-on: ubuntu-20.04
+    - _18
+    - _23
+    - _35
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -170,25 +170,25 @@ jobs:
     name: rocm-hip-sdk
     needs:
     - _11
-    - _13
-    - _15
-    - _19
-    - _22
-    - _24
+    - _14
+    - _17
+    - _23
     - _26
+    - _28
     - _30
-    - _32
-    - _35
+    - _34
     - _36
-    - _37
+    - _39
     - _40
     - _41
+    - _44
     - _45
-    - _48
-    - _50
+    - _49
     - _52
+    - _54
+    - _56
     - _7
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -224,9 +224,52 @@ jobs:
     container:
       image: archlinux
       options: --privileged
+    name: miopen-opencl
+    needs:
+    - _10
+    - _18
+    - _19
+    - _34
+    - _45
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Receive GPG keys
+      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/miopen-opencl
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _14:
+    container:
+      image: archlinux
+      options: --privileged
     name: rocm-core
     needs: []
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -258,13 +301,13 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  _14:
+  _15:
     container:
       image: archlinux
       options: --privileged
     name: rocm-llvm-alt-bin
     needs: []
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -296,16 +339,56 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  _15:
+  _16:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocm-gdb
+    needs:
+    - _3
+    - _6
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Receive GPG keys
+      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocm-gdb
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _17:
     container:
       image: archlinux
       options: --privileged
     name: hipblas
     needs:
-    - _31
-    - _40
-    - _41
-    runs-on: ubuntu-20.04
+    - _35
+    - _44
+    - _45
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -337,13 +420,13 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  _16:
+  _18:
     container:
       image: archlinux
       options: --privileged
     name: rocm-cmake
     needs: []
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -375,14 +458,14 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  _17:
+  _19:
     container:
       image: archlinux
       options: --privileged
     name: rocm-llvm-mlir
     needs:
-    - _31
-    runs-on: ubuntu-20.04
+    - _35
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -414,92 +497,13 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  _18:
-    container:
-      image: archlinux
-      options: --privileged
-    name: rocm-bandwidth-test
-    needs:
-    - _39
-    runs-on: ubuntu-20.04
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocm-bandwidth-test
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  _19:
-    container:
-      image: archlinux
-      options: --privileged
-    name: rocprim
-    needs:
-    - _16
-    - _31
-    runs-on: ubuntu-20.04
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocprim
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
   _2:
     container:
       image: archlinux
       options: --privileged
     name: python-cppheaderparser
     needs: []
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -535,14 +539,172 @@ jobs:
     container:
       image: archlinux
       options: --privileged
+    name: rocm-bandwidth-test
+    needs:
+    - _43
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Receive GPG keys
+      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocm-bandwidth-test
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _21:
+    container:
+      image: archlinux
+      options: --privileged
+    name: hip-runtime-nvidia
+    needs:
+    - _34
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Receive GPG keys
+      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/hip-runtime-nvidia
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _22:
+    container:
+      image: archlinux
+      options: --privileged
+    name: openmp-extras
+    needs:
+    - _34
+    - _43
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Receive GPG keys
+      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/openmp-extras
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _23:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocprim
+    needs:
+    - _18
+    - _35
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Receive GPG keys
+      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocprim
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _24:
+    container:
+      image: archlinux
+      options: --privileged
     name: rocm-language-runtime
     needs:
-    - _13
-    - _21
-    - _39
+    - _14
+    - _25
+    - _43
     - _5
     - _8
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -574,13 +736,13 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  _21:
+  _25:
     container:
       image: archlinux
       options: --privileged
     name: hsakmt-roct
     needs: []
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -612,15 +774,15 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  _22:
+  _26:
     container:
       image: archlinux
       options: --privileged
     name: rocsparse
     needs:
-    - _19
-    - _31
-    runs-on: ubuntu-20.04
+    - _23
+    - _35
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -652,16 +814,16 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  _23:
+  _27:
     container:
       image: archlinux
       options: --privileged
     name: mivisionx
     needs:
-    - _16
-    - _25
-    - _36
-    runs-on: ubuntu-20.04
+    - _18
+    - _29
+    - _40
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -693,15 +855,15 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  _24:
+  _28:
     container:
       image: archlinux
       options: --privileged
     name: hipsparse
     needs:
-    - _22
-    - _31
-    runs-on: ubuntu-20.04
+    - _26
+    - _35
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -733,16 +895,16 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  _25:
+  _29:
     container:
       image: archlinux
       options: --privileged
     name: migraphx
     needs:
-    - _16
-    - _31
-    - _36
-    runs-on: ubuntu-20.04
+    - _18
+    - _35
+    - _40
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -774,171 +936,13 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  _26:
-    container:
-      image: archlinux
-      options: --privileged
-    name: rocrand
-    needs:
-    - _31
-    runs-on: ubuntu-20.04
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocrand
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  _27:
-    container:
-      image: archlinux
-      options: --privileged
-    name: hipify-clang
-    needs:
-    - _30
-    runs-on: ubuntu-20.04
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/hipify-clang
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  _28:
-    container:
-      image: archlinux
-      options: --privileged
-    name: rocwmma
-    needs:
-    - _16
-    - _31
-    - _41
-    runs-on: ubuntu-20.04
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocwmma
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  _29:
-    container:
-      image: archlinux
-      options: --privileged
-    name: rocm-smi-lib
-    needs:
-    - _39
-    runs-on: ubuntu-20.04
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocm-smi-lib
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
   _3:
     container:
       image: archlinux
       options: --privileged
     name: guile2.0
     needs: []
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -974,9 +978,167 @@ jobs:
     container:
       image: archlinux
       options: --privileged
+    name: rocrand
+    needs:
+    - _35
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Receive GPG keys
+      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocrand
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _31:
+    container:
+      image: archlinux
+      options: --privileged
+    name: hipify-clang
+    needs:
+    - _34
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Receive GPG keys
+      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/hipify-clang
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _32:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocwmma
+    needs:
+    - _18
+    - _35
+    - _45
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Receive GPG keys
+      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocwmma
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _33:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocm-smi-lib
+    needs:
+    - _43
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Receive GPG keys
+      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocm-smi-lib
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _34:
+    container:
+      image: archlinux
+      options: --privileged
     name: rocm-llvm
     needs: []
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1008,16 +1170,16 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  _31:
+  _35:
     container:
       image: archlinux
       options: --privileged
     name: hip-runtime-amd
     needs:
-    - _30
-    - _44
+    - _34
+    - _48
     - _8
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1049,14 +1211,14 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  _32:
+  _36:
     container:
       image: archlinux
       options: --privileged
     name: rccl
     needs:
-    - _29
-    - _31
+    - _33
+    - _35
     runs-on: self-hosted
     steps:
     - name: Download artifacts
@@ -1089,15 +1251,15 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  _33:
+  _37:
     container:
       image: archlinux
       options: --privileged
     name: hipfort
     needs:
-    - _16
-    - _31
-    runs-on: ubuntu-20.04
+    - _18
+    - _35
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1129,15 +1291,15 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  _34:
+  _38:
     container:
       image: archlinux
       options: --privileged
     name: atmi
     needs:
-    - _39
+    - _43
     - _8
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1169,26 +1331,26 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  _35:
+  _39:
     container:
       image: archlinux
       options: --privileged
     name: rocm-hip-libraries
     needs:
-    - _13
-    - _15
-    - _22
-    - _24
+    - _14
+    - _17
     - _26
-    - _32
-    - _37
-    - _40
+    - _28
+    - _30
+    - _36
     - _41
+    - _44
     - _45
-    - _48
+    - _49
     - _52
+    - _56
     - _7
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1220,175 +1382,6 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  _36:
-    container:
-      image: archlinux
-      options: --privileged
-    name: miopen-hip
-    needs:
-    - _10
-    - _16
-    - _17
-    - _31
-    - _41
-    - _9
-    runs-on: ubuntu-20.04
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/miopen-hip
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  _37:
-    container:
-      image: archlinux
-      options: --privileged
-    name: rocm-hip-runtime
-    needs:
-    - _13
-    - _16
-    - _20
-    - _30
-    - _31
-    - _44
-    runs-on: ubuntu-20.04
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocm-hip-runtime
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  _38:
-    container:
-      image: archlinux
-      options: --privileged
-    name: rocm-debug-agent
-    needs:
-    - _31
-    - _6
-    runs-on: ubuntu-20.04
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocm-debug-agent
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  _39:
-    container:
-      image: archlinux
-      options: --privileged
-    name: hsa-rocr
-    needs:
-    - _21
-    - _30
-    - _5
-    runs-on: ubuntu-20.04
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/hsa-rocr
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
   _4:
     container:
       image: archlinux
@@ -1396,9 +1389,9 @@ jobs:
     name: roctracer
     needs:
     - _2
-    - _31
-    - _51
-    runs-on: ubuntu-20.04
+    - _35
+    - _55
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1434,11 +1427,180 @@ jobs:
     container:
       image: archlinux
       options: --privileged
+    name: miopen-hip
+    needs:
+    - _10
+    - _18
+    - _19
+    - _35
+    - _45
+    - _9
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Receive GPG keys
+      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/miopen-hip
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _41:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocm-hip-runtime
+    needs:
+    - _14
+    - _18
+    - _24
+    - _34
+    - _35
+    - _48
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Receive GPG keys
+      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocm-hip-runtime
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _42:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocm-debug-agent
+    needs:
+    - _35
+    - _6
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Receive GPG keys
+      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocm-debug-agent
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _43:
+    container:
+      image: archlinux
+      options: --privileged
+    name: hsa-rocr
+    needs:
+    - _25
+    - _34
+    - _5
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Receive GPG keys
+      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/hsa-rocr
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _44:
+    container:
+      image: archlinux
+      options: --privileged
     name: rocsolver
     needs:
-    - _16
-    - _31
-    - _41
+    - _18
+    - _35
+    - _45
     runs-on: self-hosted
     steps:
     - name: Download artifacts
@@ -1471,14 +1633,14 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  _41:
+  _45:
     container:
       image: archlinux
       options: --privileged
     name: rocblas
     needs:
-    - _16
-    - _31
+    - _18
+    - _35
     runs-on: self-hosted
     steps:
     - name: Download artifacts
@@ -1511,17 +1673,17 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  _42:
+  _46:
     container:
       image: archlinux
       options: --privileged
     name: rocm-opencl-runtime
     needs:
-    - _16
-    - _21
-    - _39
+    - _18
+    - _25
+    - _43
     - _8
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1553,13 +1715,13 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  _43:
+  _47:
     container:
       image: archlinux
       options: --privileged
     name: hsa-amd-aqlprofile-bin
     needs: []
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1591,15 +1753,15 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  _44:
+  _48:
     container:
       image: archlinux
       options: --privileged
     name: rocminfo
     needs:
-    - _16
-    - _39
-    runs-on: ubuntu-20.04
+    - _18
+    - _43
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1631,15 +1793,15 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  _45:
+  _49:
     container:
       image: archlinux
       options: --privileged
     name: hipfft
     needs:
-    - _31
+    - _35
     - _7
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1671,181 +1833,15 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  _46:
-    container:
-      image: archlinux
-      options: --privileged
-    name: rocm-validation-suite
-    needs:
-    - _29
-    - _41
-    runs-on: ubuntu-20.04
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocm-validation-suite
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  _47:
-    container:
-      image: archlinux
-      options: --privileged
-    name: rocm-developer-tools
-    needs:
-    - _12
-    - _13
-    - _38
-    - _4
-    - _51
-    - _6
-    runs-on: ubuntu-20.04
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocm-developer-tools
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  _48:
-    container:
-      image: archlinux
-      options: --privileged
-    name: hipsolver
-    needs:
-    - _31
-    - _40
-    runs-on: ubuntu-20.04
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/hipsolver
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-  _49:
-    container:
-      image: archlinux
-      options: --privileged
-    name: rocm-opencl-sdk
-    needs:
-    - _13
-    - _20
-    - _30
-    - _42
-    runs-on: ubuntu-20.04
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocm-opencl-sdk
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
   _5:
     container:
       image: archlinux
       options: --privileged
     name: rocm-device-libs
     needs:
-    - _16
-    - _30
-    runs-on: ubuntu-20.04
+    - _18
+    - _34
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1881,12 +1877,179 @@ jobs:
     container:
       image: archlinux
       options: --privileged
+    name: rocm-validation-suite
+    needs:
+    - _33
+    - _45
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Receive GPG keys
+      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocm-validation-suite
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _51:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocm-developer-tools
+    needs:
+    - _12
+    - _14
+    - _16
+    - _4
+    - _42
+    - _55
+    - _6
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Receive GPG keys
+      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocm-developer-tools
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _52:
+    container:
+      image: archlinux
+      options: --privileged
+    name: hipsolver
+    needs:
+    - _35
+    - _44
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Receive GPG keys
+      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/hipsolver
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _53:
+    container:
+      image: archlinux
+      options: --privileged
+    name: rocm-opencl-sdk
+    needs:
+    - _14
+    - _24
+    - _34
+    - _46
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Receive GPG keys
+      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/rocm/rocm-opencl-sdk
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
+  _54:
+    container:
+      image: archlinux
+      options: --privileged
     name: hipcub
     needs:
-    - _16
-    - _19
-    - _31
-    runs-on: ubuntu-20.04
+    - _18
+    - _23
+    - _35
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1918,17 +2081,17 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  _51:
+  _55:
     container:
       image: archlinux
       options: --privileged
     name: rocprofiler
     needs:
     - _2
-    - _31
-    - _39
+    - _35
     - _43
-    runs-on: ubuntu-20.04
+    - _47
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1960,19 +2123,19 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  _52:
+  _56:
     container:
       image: archlinux
       options: --privileged
     name: rocalution
     needs:
-    - _16
-    - _19
-    - _22
+    - _18
+    - _23
     - _26
-    - _31
-    - _41
-    runs-on: ubuntu-20.04
+    - _30
+    - _35
+    - _45
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -2004,14 +2167,14 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-  _53:
+  _57:
     container:
       image: archlinux
       options: --privileged
     name: hipmagma
     needs:
     - _12
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -2049,10 +2212,10 @@ jobs:
       options: --privileged
     name: rocm-dbgapi
     needs:
-    - _16
-    - _39
+    - _18
+    - _43
     - _8
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -2090,7 +2253,7 @@ jobs:
       options: --privileged
     name: rocfft
     needs:
-    - _31
+    - _35
     runs-on: self-hosted
     steps:
     - name: Download artifacts
@@ -2129,10 +2292,10 @@ jobs:
       options: --privileged
     name: comgr
     needs:
-    - _16
-    - _30
+    - _18
+    - _34
     - _5
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -2170,10 +2333,10 @@ jobs:
       options: --privileged
     name: rocm-clang-ocl
     needs:
-    - _16
-    - _30
-    - _42
-    runs-on: ubuntu-20.04
+    - _18
+    - _34
+    - _46
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
