@@ -1,3 +1,11 @@
+[submodule "packages/aur/guile2.0"]
+    path = packages/aur/guile2.0
+    url = https://aur.archlinux.org/guile2.0.git
+
+[submodule "packages/aur/python-cppheaderparser"]
+    path = packages/aur/python-cppheaderparser
+    url = https://aur.archlinux.org/python-cppheaderparser.git
+
 [submodule "packages/hip/hipmagma"]
     path = packages/hip/hipmagma
     url = https://github.com/rocm-arch/hipmagma.git

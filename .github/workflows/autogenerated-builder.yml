@@ -76,6 +76,42 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+  guile2.0:
+    container:
+      image: archlinux
+      options: --privileged
+    name: guile2.0
+    needs: []
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/aur/guile2.0
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
   hip-runtime-amd:
     container:
       image: archlinux
@@ -725,6 +761,42 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+  python-cppheaderparser:
+    container:
+      image: archlinux
+      options: --privileged
+    name: python-cppheaderparser
+    needs: []
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Upgrade system
+      uses: sasha0552/rocm4arch/actions/system-upgrade@master
+    - name: Install required packages
+      uses: sasha0552/rocm4arch/actions/system-packages@master
+      with:
+        additional: base-devel
+    - name: Create local package repository
+      uses: sasha0552/rocm4arch/actions/system-localrepo@master
+    - name: Install package repositories
+      uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Build package
+      uses: sasha0552/rocm4arch/actions/package-build@master
+      with:
+        package_path: packages/aur/python-cppheaderparser
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: packages/**/*.pkg.tar.zst
   python-pytorch-rocm:
     container:
       image: archlinux
@@ -1273,6 +1345,7 @@ jobs:
     name: rocm-gdb
     needs:
     - rocm-dbgapi
+    - guile2.0
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -1838,6 +1911,7 @@ jobs:
     needs:
     - hip-runtime-amd
     - hsa-amd-aqlprofile-bin
+    - python-cppheaderparser
     - hsa-rocr
     runs-on: ubuntu-latest
     steps:
@@ -2030,6 +2104,7 @@ jobs:
     needs:
     - hip-runtime-amd
     - rocprofiler
+    - python-cppheaderparser
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
