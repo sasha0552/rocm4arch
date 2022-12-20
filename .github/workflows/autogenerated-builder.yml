@@ -5,10 +5,10 @@ jobs:
       options: --privileged
     name: python-pytorch-rocm
     needs:
-    - _34
     - _12
-    - _4
+    - _34
     - _38
+    - _4
     - _55
     runs-on: ubuntu-latest
     steps:
@@ -49,8 +49,8 @@ jobs:
     name: python-torchvision-rocm
     needs:
     - _0
-    - _38
     - _12
+    - _38
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -128,9 +128,9 @@ jobs:
       options: --privileged
     name: rocthrust
     needs:
-    - _33
-    - _21
     - _17
+    - _21
+    - _33
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -169,25 +169,25 @@ jobs:
       options: --privileged
     name: rocm-hip-sdk
     needs:
-    - _37
-    - _32
-    - _13
-    - _39
-    - _16
-    - _52
-    - _47
-    - _26
-    - _50
-    - _38
-    - _34
-    - _54
-    - _43
-    - _7
-    - _21
-    - _28
-    - _42
-    - _24
     - _11
+    - _13
+    - _16
+    - _21
+    - _24
+    - _26
+    - _28
+    - _32
+    - _34
+    - _37
+    - _38
+    - _39
+    - _42
+    - _43
+    - _47
+    - _50
+    - _52
+    - _54
+    - _7
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -302,8 +302,8 @@ jobs:
       options: --privileged
     name: rocm-gdb
     needs:
-    - _6
     - _3
+    - _6
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -343,8 +343,8 @@ jobs:
     name: hipblas
     needs:
     - _33
-    - _43
     - _42
+    - _43
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -537,9 +537,9 @@ jobs:
       options: --privileged
     name: openmp-extras
     needs:
-    - _41
     - _32
-    runs-on: ubuntu-latest
+    - _41
+    runs-on: self-hosted
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -577,8 +577,8 @@ jobs:
       options: --privileged
     name: rocprim
     needs:
-    - _33
     - _17
+    - _33
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -698,8 +698,8 @@ jobs:
       options: --privileged
     name: rocsparse
     needs:
-    - _33
     - _21
+    - _33
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -738,9 +738,9 @@ jobs:
       options: --privileged
     name: mivisionx
     needs:
-    - _38
-    - _27
     - _17
+    - _27
+    - _38
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -779,8 +779,8 @@ jobs:
       options: --privileged
     name: hipsparse
     needs:
-    - _33
     - _24
+    - _33
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -819,9 +819,9 @@ jobs:
       options: --privileged
     name: migraphx
     needs:
+    - _17
     - _33
     - _38
-    - _17
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -976,9 +976,9 @@ jobs:
       options: --privileged
     name: rocwmma
     needs:
+    - _17
     - _33
     - _43
-    - _17
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -1094,9 +1094,9 @@ jobs:
       options: --privileged
     name: hip-runtime-amd
     needs:
-    - _8
-    - _46
     - _32
+    - _46
+    - _8
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -1135,9 +1135,9 @@ jobs:
       options: --privileged
     name: rccl
     needs:
-    - _33
     - _31
-    runs-on: ubuntu-latest
+    - _33
+    runs-on: self-hosted
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1175,8 +1175,8 @@ jobs:
       options: --privileged
     name: hipfort
     needs:
-    - _33
     - _17
+    - _33
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -1256,18 +1256,18 @@ jobs:
     name: rocm-hip-libraries
     needs:
     - _13
-    - _39
     - _16
-    - _47
-    - _26
-    - _50
-    - _34
-    - _54
-    - _43
-    - _7
-    - _28
-    - _42
     - _24
+    - _26
+    - _28
+    - _34
+    - _39
+    - _42
+    - _43
+    - _47
+    - _50
+    - _54
+    - _7
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -1306,12 +1306,12 @@ jobs:
       options: --privileged
     name: miopen-hip
     needs:
+    - _10
+    - _17
+    - _18
+    - _33
     - _43
     - _9
-    - _33
-    - _18
-    - _17
-    - _10
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -1351,11 +1351,11 @@ jobs:
     name: rocm-hip-runtime
     needs:
     - _13
-    - _22
-    - _46
-    - _33
-    - _32
     - _17
+    - _22
+    - _32
+    - _33
+    - _46
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -1394,9 +1394,9 @@ jobs:
       options: --privileged
     name: roctracer
     needs:
+    - _2
     - _33
     - _53
-    - _2
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -1476,8 +1476,8 @@ jobs:
     name: hsa-rocr
     needs:
     - _23
-    - _5
     - _32
+    - _5
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -1516,9 +1516,9 @@ jobs:
       options: --privileged
     name: rocsolver
     needs:
+    - _17
     - _33
     - _43
-    - _17
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -1557,9 +1557,9 @@ jobs:
       options: --privileged
     name: rocblas
     needs:
-    - _33
     - _17
-    runs-on: ubuntu-latest
+    - _33
+    runs-on: self-hosted
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1597,10 +1597,10 @@ jobs:
       options: --privileged
     name: rocm-opencl-runtime
     needs:
+    - _17
     - _23
     - _41
     - _8
-    - _17
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -1677,8 +1677,8 @@ jobs:
       options: --privileged
     name: rocminfo
     needs:
-    - _41
     - _17
+    - _41
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -1757,8 +1757,8 @@ jobs:
       options: --privileged
     name: rocm-validation-suite
     needs:
-    - _43
     - _31
+    - _43
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -1797,13 +1797,13 @@ jobs:
       options: --privileged
     name: rocm-developer-tools
     needs:
-    - _13
     - _12
-    - _53
-    - _4
+    - _13
     - _15
-    - _6
+    - _4
     - _40
+    - _53
+    - _6
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -1924,8 +1924,8 @@ jobs:
     needs:
     - _13
     - _22
-    - _44
     - _32
+    - _44
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -1964,8 +1964,8 @@ jobs:
       options: --privileged
     name: hipcub
     needs:
-    - _21
     - _17
+    - _21
     - _33
     runs-on: ubuntu-latest
     steps:
@@ -2005,10 +2005,10 @@ jobs:
       options: --privileged
     name: rocprofiler
     needs:
-    - _33
-    - _45
     - _2
+    - _33
     - _41
+    - _45
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -2047,12 +2047,12 @@ jobs:
       options: --privileged
     name: rocalution
     needs:
-    - _33
-    - _24
-    - _43
-    - _21
-    - _28
     - _17
+    - _21
+    - _24
+    - _28
+    - _33
+    - _43
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -2130,9 +2130,9 @@ jobs:
       options: --privileged
     name: rocm-dbgapi
     needs:
-    - _8
-    - _41
     - _17
+    - _41
+    - _8
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -2172,7 +2172,7 @@ jobs:
     name: rocfft
     needs:
     - _33
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -2210,9 +2210,9 @@ jobs:
       options: --privileged
     name: comgr
     needs:
-    - _5
     - _17
     - _32
+    - _5
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
@@ -2251,9 +2251,9 @@ jobs:
       options: --privileged
     name: rocm-clang-ocl
     needs:
+    - _17
     - _32
     - _44
-    - _17
     runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
