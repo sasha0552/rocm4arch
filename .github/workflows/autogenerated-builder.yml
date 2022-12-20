@@ -10,7 +10,7 @@ jobs:
     - _38
     - _4
     - _55
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -51,7 +51,7 @@ jobs:
     - _0
     - _12
     - _38
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -90,7 +90,7 @@ jobs:
     name: miopengemm
     needs:
     - _17
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -131,7 +131,7 @@ jobs:
     - _17
     - _21
     - _33
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -188,7 +188,7 @@ jobs:
     - _52
     - _54
     - _7
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -226,7 +226,7 @@ jobs:
       options: --privileged
     name: rocm-core
     needs: []
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -264,7 +264,7 @@ jobs:
       options: --privileged
     name: rocm-llvm-alt-bin
     needs: []
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -304,7 +304,7 @@ jobs:
     needs:
     - _3
     - _6
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -345,7 +345,7 @@ jobs:
     - _33
     - _42
     - _43
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -383,7 +383,7 @@ jobs:
       options: --privileged
     name: rocm-cmake
     needs: []
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -422,7 +422,7 @@ jobs:
     name: rocm-llvm-mlir
     needs:
     - _33
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -461,7 +461,7 @@ jobs:
     name: rocm-bandwidth-test
     needs:
     - _41
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -499,7 +499,7 @@ jobs:
       options: --privileged
     name: python-cppheaderparser
     needs: []
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -579,7 +579,7 @@ jobs:
     needs:
     - _17
     - _33
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -622,7 +622,7 @@ jobs:
     - _41
     - _5
     - _8
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -660,7 +660,7 @@ jobs:
       options: --privileged
     name: hsakmt-roct
     needs: []
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -700,7 +700,7 @@ jobs:
     needs:
     - _21
     - _33
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -741,7 +741,7 @@ jobs:
     - _17
     - _27
     - _38
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -781,7 +781,7 @@ jobs:
     needs:
     - _24
     - _33
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -822,7 +822,7 @@ jobs:
     - _17
     - _33
     - _38
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -861,7 +861,7 @@ jobs:
     name: rocrand
     needs:
     - _33
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -900,7 +900,7 @@ jobs:
     name: hipify-clang
     needs:
     - _32
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -938,7 +938,7 @@ jobs:
       options: --privileged
     name: guile2.0
     needs: []
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -979,7 +979,7 @@ jobs:
     - _17
     - _33
     - _43
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1018,7 +1018,7 @@ jobs:
     name: rocm-smi-lib
     needs:
     - _41
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1056,7 +1056,7 @@ jobs:
       options: --privileged
     name: rocm-llvm
     needs: []
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1097,7 +1097,7 @@ jobs:
     - _32
     - _46
     - _8
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1177,7 +1177,7 @@ jobs:
     needs:
     - _17
     - _33
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1217,7 +1217,7 @@ jobs:
     needs:
     - _41
     - _8
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1268,7 +1268,7 @@ jobs:
     - _50
     - _54
     - _7
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1312,7 +1312,7 @@ jobs:
     - _33
     - _43
     - _9
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1356,7 +1356,7 @@ jobs:
     - _32
     - _33
     - _46
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1397,7 +1397,7 @@ jobs:
     - _2
     - _33
     - _53
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1437,7 +1437,7 @@ jobs:
     needs:
     - _33
     - _6
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1478,7 +1478,7 @@ jobs:
     - _23
     - _32
     - _5
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1519,7 +1519,7 @@ jobs:
     - _17
     - _33
     - _43
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1601,7 +1601,7 @@ jobs:
     - _23
     - _41
     - _8
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1639,7 +1639,7 @@ jobs:
       options: --privileged
     name: hsa-amd-aqlprofile-bin
     needs: []
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1679,7 +1679,7 @@ jobs:
     needs:
     - _17
     - _41
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1719,7 +1719,7 @@ jobs:
     needs:
     - _33
     - _7
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1759,7 +1759,7 @@ jobs:
     needs:
     - _31
     - _43
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1804,7 +1804,7 @@ jobs:
     - _40
     - _53
     - _6
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1844,7 +1844,7 @@ jobs:
     needs:
     - _17
     - _32
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1884,7 +1884,7 @@ jobs:
     needs:
     - _33
     - _42
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1926,7 +1926,7 @@ jobs:
     - _22
     - _32
     - _44
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1967,7 +1967,7 @@ jobs:
     - _17
     - _21
     - _33
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -2009,7 +2009,7 @@ jobs:
     - _33
     - _41
     - _45
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -2053,7 +2053,7 @@ jobs:
     - _28
     - _33
     - _43
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -2092,7 +2092,7 @@ jobs:
     name: hipmagma
     needs:
     - _12
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -2133,7 +2133,7 @@ jobs:
     - _17
     - _41
     - _8
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -2213,7 +2213,7 @@ jobs:
     - _17
     - _32
     - _5
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -2254,7 +2254,7 @@ jobs:
     - _17
     - _32
     - _44
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
