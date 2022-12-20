@@ -6,7 +6,7 @@ runs:
   steps:
     - name: Create non-root user
       shell: bash
-      run: useradd user --groups wheel
+      run: useradd user --groups wheel --create-home
 
     - name: Configure sudoers
       shell: bash

@@ -58,6 +58,11 @@ def job_template(name, path, needs, runs_on):
             },
 
             {
+                "name": "Receive GPG keys",
+                "uses": "sasha0552/rocm4arch/actions/package-gpg@master"
+            },
+
+            {
                 "name": "Build package",
                 "uses": "sasha0552/rocm4arch/actions/package-build@master",
 
