@@ -1137,7 +1137,7 @@ jobs:
       image: archlinux
     name: rocm-llvm
     needs: []
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
@@ -1169,7 +1169,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-    timeout-minutes: 1440
+    timeout-minutes: 360
   _35:
     container:
       image: archlinux

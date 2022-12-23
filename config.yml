@@ -17,10 +17,6 @@ overrides:
         runs-on: self-hosted
         timeout: 1440
 
-    rocm-llvm:
-        runs-on: self-hosted
-        timeout: 1440
-
     rocsolver:
         runs-on: self-hosted
         timeout: 1440
