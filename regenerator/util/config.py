@@ -31,6 +31,13 @@ class Config:
 
         #####
 
+        if "timeout" in self._config:
+            self._timeout = self._config["timeout"]
+        else:
+            self._timeout = 360
+
+        #####
+
         if "overrides" in self._config:
             self._overrides = self._config["overrides"]
         else:
@@ -67,3 +74,14 @@ class Config:
         #####
 
         return self._runs_on
+
+    #####
+
+    def timeout(self, name):
+        if name in self._overrides:
+            if "timeout" in self._overrides[name]:
+                return self._overrides[name]["timeout"]
+
+        #####
+
+        return self._timeout

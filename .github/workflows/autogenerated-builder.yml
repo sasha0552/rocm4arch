@@ -41,6 +41,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _1:
     container:
       image: archlinux
@@ -81,6 +82,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _10:
     container:
       image: archlinux
@@ -119,6 +121,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _11:
     container:
       image: archlinux
@@ -159,6 +162,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _12:
     container:
       image: archlinux
@@ -215,6 +219,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _13:
     container:
       image: archlinux
@@ -257,6 +262,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _14:
     container:
       image: archlinux
@@ -294,6 +300,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _15:
     container:
       image: archlinux
@@ -331,6 +338,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _16:
     container:
       image: archlinux
@@ -370,6 +378,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _17:
     container:
       image: archlinux
@@ -410,6 +419,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _18:
     container:
       image: archlinux
@@ -447,6 +457,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _19:
     container:
       image: archlinux
@@ -485,6 +496,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _2:
     container:
       image: archlinux
@@ -522,6 +534,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _20:
     container:
       image: archlinux
@@ -560,6 +573,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _21:
     container:
       image: archlinux
@@ -598,6 +612,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _22:
     container:
       image: archlinux
@@ -637,6 +652,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _23:
     container:
       image: archlinux
@@ -676,6 +692,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _24:
     container:
       image: archlinux
@@ -718,6 +735,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _25:
     container:
       image: archlinux
@@ -755,6 +773,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _26:
     container:
       image: archlinux
@@ -794,6 +813,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _27:
     container:
       image: archlinux
@@ -834,6 +854,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _28:
     container:
       image: archlinux
@@ -873,6 +894,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _29:
     container:
       image: archlinux
@@ -913,6 +935,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _3:
     container:
       image: archlinux
@@ -950,6 +973,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _30:
     container:
       image: archlinux
@@ -988,6 +1012,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _31:
     container:
       image: archlinux
@@ -1026,6 +1051,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _32:
     container:
       image: archlinux
@@ -1066,6 +1092,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _33:
     container:
       image: archlinux
@@ -1104,6 +1131,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _34:
     container:
       image: archlinux
@@ -1141,6 +1169,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 1440
   _35:
     container:
       image: archlinux
@@ -1181,6 +1210,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _36:
     container:
       image: archlinux
@@ -1220,6 +1250,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 1440
   _37:
     container:
       image: archlinux
@@ -1259,6 +1290,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _38:
     container:
       image: archlinux
@@ -1298,6 +1330,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _39:
     container:
       image: archlinux
@@ -1348,6 +1381,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _4:
     container:
       image: archlinux
@@ -1388,6 +1422,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _40:
     container:
       image: archlinux
@@ -1431,6 +1466,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _41:
     container:
       image: archlinux
@@ -1474,6 +1510,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _42:
     container:
       image: archlinux
@@ -1513,6 +1550,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _43:
     container:
       image: archlinux
@@ -1553,6 +1591,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _44:
     container:
       image: archlinux
@@ -1593,6 +1632,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 1440
   _45:
     container:
       image: archlinux
@@ -1632,6 +1672,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 1440
   _46:
     container:
       image: archlinux
@@ -1673,6 +1714,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _47:
     container:
       image: archlinux
@@ -1710,6 +1752,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _48:
     container:
       image: archlinux
@@ -1749,6 +1792,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _49:
     container:
       image: archlinux
@@ -1788,6 +1832,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _5:
     container:
       image: archlinux
@@ -1827,6 +1872,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _50:
     container:
       image: archlinux
@@ -1866,6 +1912,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _51:
     container:
       image: archlinux
@@ -1910,6 +1957,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _52:
     container:
       image: archlinux
@@ -1949,6 +1997,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _53:
     container:
       image: archlinux
@@ -1990,6 +2039,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _54:
     container:
       image: archlinux
@@ -2030,6 +2080,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _55:
     container:
       image: archlinux
@@ -2071,6 +2122,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _56:
     container:
       image: archlinux
@@ -2114,6 +2166,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _57:
     container:
       image: archlinux
@@ -2152,6 +2205,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _6:
     container:
       image: archlinux
@@ -2192,6 +2246,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _7:
     container:
       image: archlinux
@@ -2230,6 +2285,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 1440
   _8:
     container:
       image: archlinux
@@ -2270,6 +2326,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
   _9:
     container:
       image: archlinux
@@ -2310,6 +2367,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
+    timeout-minutes: 360
 name: Builder (Autogenerated)
 'on':
 - workflow_dispatch

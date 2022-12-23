@@ -67,7 +67,7 @@ if __name__ == "__main__":
         path = package["path"]
         depends = list(package["depends"])
 
-        jobs[names[name]] = job_template(name, path, sorted(depends), config.runs_on(name))
+        jobs[names[name]] = job_template(name, path, sorted(depends), config.runs_on(name), config.timeout(name))
 
     #####
 

@@ -1,8 +1,9 @@
-def job_template(name, path, needs, runs_on):
+def job_template(name, path, needs, runs_on, timeout):
     return {
         "name": name,
         "needs": needs,
         "runs-on": runs_on,
+        "timeout-minutes": timeout,
 
         "container": {
             "image": "archlinux"
