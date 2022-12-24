@@ -9,7 +9,7 @@ class PackageManager:
     ##########
 
     def _parse_package_info(self, file_path, info):
-        name = file_path.parents[0].name
+        name = info["pkgbase"]
         path = str(file_path.parents[0])
         depends = set()
         altnames = set()
