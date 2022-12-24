@@ -1,0 +1,13 @@
+name: System cleanup
+
+runs:
+  using: "composite"
+
+  steps:
+    - name: Remove old artifacts
+      shell: bash
+      run: rm -rf "$HOME/artifacts/"
+
+    - name: Remove old local package repository
+      shell: bash
+      run: rm -rf "$HOME/localrepo/"

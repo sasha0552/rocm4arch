@@ -11,6 +11,11 @@ def job_template(name, path, needs, runs_on, timeout):
 
         "steps": [
             {
+                "name": "System cleanup",
+                "uses": "sasha0552/rocm4arch/actions/system-cleanup@master"
+            },
+
+            {
                 "name": "Download artifacts",
                 "uses": "actions/download-artifact@v3",
 
