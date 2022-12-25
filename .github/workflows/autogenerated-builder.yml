@@ -22,6 +22,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -64,6 +66,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -108,6 +112,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -150,6 +156,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -192,6 +200,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -238,6 +248,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -281,6 +293,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -324,6 +338,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -365,6 +381,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -409,6 +427,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -455,6 +475,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -495,6 +517,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -537,6 +561,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -578,6 +604,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -620,6 +648,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -661,6 +691,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -704,6 +736,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -746,6 +780,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -789,6 +825,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -831,6 +869,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -876,6 +916,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -916,6 +958,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -957,6 +1001,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -1002,6 +1048,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -1044,6 +1092,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -1087,6 +1137,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -1128,6 +1180,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -1174,6 +1228,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -1216,6 +1272,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -1257,6 +1315,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -1298,6 +1358,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -1338,6 +1400,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -1380,6 +1444,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -1420,6 +1486,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -1462,6 +1530,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -1505,6 +1575,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -1547,6 +1619,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -1589,6 +1663,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -1648,6 +1724,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -1691,6 +1769,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -1731,6 +1811,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -1776,6 +1858,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -1819,6 +1903,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -1863,6 +1949,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -1906,6 +1994,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -1949,6 +2039,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -1989,6 +2081,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -2030,6 +2124,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -2073,6 +2169,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -2114,6 +2212,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -2154,6 +2254,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -2207,6 +2309,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -2247,6 +2351,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -2289,6 +2395,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -2334,6 +2442,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -2381,6 +2491,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -2423,6 +2535,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -2466,6 +2580,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -2509,6 +2625,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
@@ -2549,6 +2667,8 @@ jobs:
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create users
       uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository

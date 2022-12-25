@@ -49,6 +49,11 @@ def job_template(name, path, needs, runs_on, timeout):
             },
 
             {
+                "name": "Configure makepkg",
+                "uses": "sasha0552/rocm4arch/actions/system-makepkg@master"
+            },
+
+            {
                 "name": "Create users",
                 "uses": "sasha0552/rocm4arch/actions/system-users@master"
             },

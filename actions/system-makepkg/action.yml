@@ -1,0 +1,10 @@
+name: Configure makepkg
+
+runs:
+  using: "composite"
+
+  steps:
+    - name: Configure makepkg
+      shell: bash
+      run: |-
+        sed "s/#\?MAKEFLAGS=.*/MAKEFLAGS=-j$(nproc)/" -i /etc/makepkg.conf
