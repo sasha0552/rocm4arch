@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from yaml import dump
+from hashlib import sha1
 
 from template.job import job_template
 from template.action import action_template
@@ -51,8 +52,8 @@ if __name__ == "__main__":
 
     names = {}
 
-    for index, package in enumerate(packages):
-        names[package["name"]] = "_{}".format(index)
+    for package in packages:
+        names[package["name"]] = "_{}".format(sha1(package["name"].encode()).hexdigest())
 
     #####
 

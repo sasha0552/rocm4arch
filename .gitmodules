@@ -1,6 +1,14 @@
+[submodule "packages/aur/blaze"]
+    path = packages/aur/blaze
+    url = https://aur.archlinux.org/blaze.git
+
 [submodule "packages/aur/guile2.0"]
     path = packages/aur/guile2.0
     url = https://aur.archlinux.org/guile2.0.git
+
+[submodule "packages/aur/half"]
+    path = packages/aur/half
+    url = https://aur.archlinux.org/half.git
 
 [submodule "packages/aur/python-cppheaderparser"]
     path = packages/aur/python-cppheaderparser
