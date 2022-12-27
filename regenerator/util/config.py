@@ -45,6 +45,17 @@ class Config:
 
     ##########
 
+    def _get_or_default(self, name, property, default):
+        if name in self._overrides:
+            if property in self._overrides[name]:
+                return self._overrides[name][property]
+
+        #####
+
+        return default
+
+    #####
+
     def get_input(self):
         return pathlib.Path(self._input)
 
@@ -56,32 +67,27 @@ class Config:
     #####
 
     def is_build(self, name):
-        if name in self._overrides:
-            if "build" in self._overrides[name]:
-                return self._overrides[name]["build"]
-
-        #####
-
-        return True
+        return self._get_or_default(name, "build", True)
 
     #####
 
     def runs_on(self, name):
-        if name in self._overrides:
-            if "runs-on" in self._overrides[name]:
-                return self._overrides[name]["runs-on"]
-
-        #####
-
-        return self._runs_on
+        return self._get_or_default(name, "runs-on", self._runs_on)
 
     #####
 
     def timeout(self, name):
-        if name in self._overrides:
-            if "timeout" in self._overrides[name]:
-                return self._overrides[name]["timeout"]
+        return self._get_or_default(name, "timeout", self._timeout)
 
-        #####
+    #####
 
-        return self._timeout
+    def pre_build_commands(self, name):
+        return self._get_or_default(name, "pre-build-commands", [])
+
+    def post_build_commands(self, name):
+        return self._get_or_default(name, "post-build-commands", [])
+
+    #####
+
+    def gpg_keys(self, name):
+        return self._get_or_default(name, "gpg", [])

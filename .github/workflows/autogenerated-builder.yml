@@ -8,34 +8,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/hsa-amd-aqlprofile-bin
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -52,34 +56,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocminfo
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -98,34 +106,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocm-opencl-sdk
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -142,34 +154,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocsparse
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -186,34 +202,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocblas
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -234,34 +254,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/miopen-hip
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -275,43 +299,47 @@ jobs:
     - _0cefeea4b9a0aad23a0b2399c3c868c50751c674
     - _8c6a53cb558fd45a5dd0175f17db6559f446a0d2
     - _9bf3b1835e86f1fdf32f61123fdf6b43bc70f559
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/pytorch/python-torchvision-rocm
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-    timeout-minutes: 360
+    timeout-minutes: 1440
   _122aa88f9b27c10c24a74d018b16dc5c232408c1:
     container:
       image: archlinux
@@ -324,34 +352,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/roctracer
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -367,34 +399,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/hip-runtime-nvidia
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -413,34 +449,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocprofiler
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -461,34 +501,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocm-hip-runtime
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -503,34 +547,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocm-core
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -547,34 +595,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocm-debug-agent
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -590,34 +642,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocm-bandwidth-test
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -634,34 +690,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocm-gdb
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -677,34 +737,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocrand
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -722,34 +786,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/hipblas
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -766,34 +834,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocm-device-libs
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -811,34 +883,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/hsa-rocr
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -855,34 +931,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rccl
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -902,34 +982,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocm-language-runtime
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -944,34 +1028,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/hsakmt-roct
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -987,34 +1075,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/miopengemm
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -1034,34 +1126,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/miopen-opencl
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -1078,34 +1174,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/hipsolver
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -1123,34 +1223,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/comgr
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -1166,34 +1270,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/hip/hipmagma
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -1214,34 +1322,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocalution
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -1258,34 +1370,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocm-validation-suite
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -1301,34 +1417,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocm-smi-lib
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -1344,34 +1464,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/hipify-clang
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -1386,34 +1510,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/aur/half
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -1430,34 +1558,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/hipsparse
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -1472,34 +1604,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocm-llvm-alt-bin
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -1516,34 +1652,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocprim
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -1561,34 +1701,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/mivisionx
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -1605,34 +1749,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/atmi
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -1649,34 +1797,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/hipfort
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -1710,34 +1862,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocm-hip-sdk
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -1755,34 +1911,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocm-dbgapi
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -1797,34 +1957,41 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run:
+      - cd packages/aur/guile2.0
+      - su user --command gpg --recv-keys FF478FB264DE32EC296725A3DDC0F5358812F8F2
+      - su user --command gpg --recv-keys 3CE464558A84FDC69DB40CFB090B11993D9AEBB5
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/aur/guile2.0
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -1840,43 +2007,52 @@ jobs:
     - _409ce88da61effeee5761512de8cc48b95ec9ef9
     - _5d06347ea7ec7fadb56280fb0cb7c38aa9f953d3
     - _8c6a53cb558fd45a5dd0175f17db6559f446a0d2
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run:
+      - cd packages/pytorch/python-pytorch-rocm
+      - sed '/prepare()/a\  git config --global protocol.file.allow always' -i PKGBUILD
+      - sed '/git submodule update/a\  sed "1i#include <mutex>" -i third_party/kineto/libkineto/src/RoctracerActivityApi.h'
+        -i PKGBUILD
+      - sed 's/79360/87773/g' -i PKGBUILD
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/pytorch/python-pytorch-rocm
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-    timeout-minutes: 360
+    timeout-minutes: 1440
   _a5fcaf01721da68ca0d946b7a287dd9c92b2535b:
     container:
       image: archlinux
@@ -1889,34 +2065,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/hipcub
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -1935,34 +2115,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocm-opencl-runtime
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -1980,34 +2164,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocwmma
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -2025,34 +2213,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/hip-runtime-amd
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -2067,34 +2259,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/aur/blaze
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -2110,34 +2306,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocm-llvm-mlir
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -2155,34 +2355,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocsolver
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -2198,34 +2402,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocfft
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -2240,34 +2448,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocm-llvm
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -2295,34 +2507,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocm-hip-libraries
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -2337,34 +2553,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocm-cmake
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -2381,34 +2601,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/hipfft
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -2428,34 +2652,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/migraphx
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -2477,34 +2705,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocm-developer-tools
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -2521,34 +2753,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/openmp-extras
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -2566,34 +2802,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocthrust
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -2611,34 +2851,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocm-clang-ocl
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -2653,34 +2897,38 @@ jobs:
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
     - name: Upgrade system
       uses: sasha0552/rocm4arch/actions/system-upgrade@master
     - name: Install required packages
       uses: sasha0552/rocm4arch/actions/system-packages@master
       with:
         additional: base-devel
+    - name: Create users
+      uses: sasha0552/rocm4arch/actions/system-users@master
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ~/artifacts/
+    - name: Configure makepkg
+      uses: sasha0552/rocm4arch/actions/system-makepkg@master
     - name: Create local package repository
       uses: sasha0552/rocm4arch/actions/system-localrepo@master
     - name: Install package repositories
       uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Receive GPG keys
-      uses: sasha0552/rocm4arch/actions/package-gpg@master
+    - name: Pre-build commands
+      run: []
+      shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/aur/python-cppheaderparser
+    - name: Post-build commands
+      run: []
+      shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:

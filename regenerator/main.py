@@ -66,9 +66,38 @@ if __name__ == "__main__":
     for package in packages:
         name = package["name"]
         path = package["path"]
-        depends = list(package["depends"])
+        depends = sorted(list(package["depends"]))
 
-        jobs[names[name]] = job_template(name, path, sorted(depends), config.runs_on(name), config.timeout(name))
+        #####
+
+        runs_on = config.runs_on(name)
+        timeout = config.timeout(name)
+        pre_build_commands = config.pre_build_commands(name)
+        post_build_commands = config.post_build_commands(name)
+        gpg_keys = config.gpg_keys(name)
+
+        #####
+
+        for key in gpg_keys:
+            pre_build_commands.insert(0,
+                "su user --command {}".format(
+                    "gpg --recv-keys {}".format(
+                        key
+                    )
+                )
+            )
+
+        #####
+
+        if len(pre_build_commands) != 0:
+            pre_build_commands.insert(0, "cd {}".format(path))
+
+        if len(post_build_commands) != 0:
+            post_build_commands.insert(0, "cd {}".format(path))
+
+        #####
+
+        jobs[names[name]] = job_template(name, path, depends, runs_on, timeout, pre_build_commands, post_build_commands)
 
     #####
 

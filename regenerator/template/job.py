@@ -1,4 +1,4 @@
-def job_template(name, path, needs, runs_on, timeout):
+def job_template(name, path, needs, runs_on, timeout, pre_build_commands, post_build_commands):
     return {
         "name": name,
         "needs": needs,
@@ -16,15 +16,6 @@ def job_template(name, path, needs, runs_on, timeout):
             },
 
             {
-                "name": "Download artifacts",
-                "uses": "actions/download-artifact@v3",
-
-                "with": {
-                    "path": "~/artifacts/"
-                }
-            },
-
-            {
                 "name": "Upgrade system",
                 "uses": "sasha0552/rocm4arch/actions/system-upgrade@master"
             },
@@ -39,13 +30,17 @@ def job_template(name, path, needs, runs_on, timeout):
             },
 
             {
-                "name": "Create local package repository",
-                "uses": "sasha0552/rocm4arch/actions/system-localrepo@master"
+                "name": "Create users",
+                "uses": "sasha0552/rocm4arch/actions/system-users@master"
             },
 
             {
-                "name": "Install package repositories",
-                "uses": "sasha0552/rocm4arch/actions/system-repositories@master"
+                "name": "Download artifacts",
+                "uses": "actions/download-artifact@v3",
+
+                "with": {
+                    "path": "~/artifacts/"
+                }
             },
 
             {
@@ -54,8 +49,13 @@ def job_template(name, path, needs, runs_on, timeout):
             },
 
             {
-                "name": "Create users",
-                "uses": "sasha0552/rocm4arch/actions/system-users@master"
+                "name": "Create local package repository",
+                "uses": "sasha0552/rocm4arch/actions/system-localrepo@master"
+            },
+
+            {
+                "name": "Install package repositories",
+                "uses": "sasha0552/rocm4arch/actions/system-repositories@master"
             },
 
             {
@@ -68,8 +68,9 @@ def job_template(name, path, needs, runs_on, timeout):
             },
 
             {
-                "name": "Receive GPG keys",
-                "uses": "sasha0552/rocm4arch/actions/package-gpg@master"
+                "name": "Pre-build commands",
+                "shell": "bash",
+                "run": pre_build_commands
             },
 
             {
@@ -79,6 +80,12 @@ def job_template(name, path, needs, runs_on, timeout):
                 "with": {
                     "package_path": path
                 }
+            },
+
+            {
+                "name": "Post-build commands",
+                "shell": "bash",
+                "run": post_build_commands
             },
 
             {
