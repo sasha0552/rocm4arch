@@ -92,7 +92,7 @@ if __name__ == "__main__":
         if len(pre_build_commands) != 0:
             pre_build_commands.insert(0, "cd {}".format(path))
         else:
-            post_build_commands.insert(0, "echo \"no pre-build commands\"")
+            pre_build_commands.insert(0, "echo \"no pre-build commands\"")
 
         if len(post_build_commands) != 0:
             post_build_commands.insert(0, "cd {}".format(path))

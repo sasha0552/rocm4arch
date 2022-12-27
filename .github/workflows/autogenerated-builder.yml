@@ -31,7 +31,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -39,8 +40,7 @@ jobs:
         package_path: packages/rocm/hsa-amd-aqlprofile-bin
     - name: Post-build commands
       run:
-      - cd packages/rocm/hsa-amd-aqlprofile-bin
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -81,7 +81,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -89,8 +90,7 @@ jobs:
         package_path: packages/rocm/rocminfo
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocminfo
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -133,7 +133,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -141,8 +142,7 @@ jobs:
         package_path: packages/rocm/rocm-opencl-sdk
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocm-opencl-sdk
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -183,7 +183,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -191,8 +192,7 @@ jobs:
         package_path: packages/rocm/rocsparse
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocsparse
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -233,7 +233,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -241,8 +242,7 @@ jobs:
         package_path: packages/rocm/rocblas
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocblas
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -287,7 +287,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -295,8 +296,7 @@ jobs:
         package_path: packages/rocm/miopen-hip
     - name: Post-build commands
       run:
-      - cd packages/rocm/miopen-hip
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -338,7 +338,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -346,8 +347,7 @@ jobs:
         package_path: packages/pytorch/python-torchvision-rocm
     - name: Post-build commands
       run:
-      - cd packages/pytorch/python-torchvision-rocm
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -389,7 +389,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -397,8 +398,7 @@ jobs:
         package_path: packages/rocm/roctracer
     - name: Post-build commands
       run:
-      - cd packages/rocm/roctracer
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -438,7 +438,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -446,8 +447,7 @@ jobs:
         package_path: packages/rocm/hip-runtime-nvidia
     - name: Post-build commands
       run:
-      - cd packages/rocm/hip-runtime-nvidia
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -490,7 +490,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -498,8 +499,7 @@ jobs:
         package_path: packages/rocm/rocprofiler
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocprofiler
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -544,7 +544,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -552,8 +553,7 @@ jobs:
         package_path: packages/rocm/rocm-hip-runtime
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocm-hip-runtime
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -592,7 +592,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -600,8 +601,7 @@ jobs:
         package_path: packages/rocm/rocm-core
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocm-core
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -642,7 +642,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -650,8 +651,7 @@ jobs:
         package_path: packages/rocm/rocm-debug-agent
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocm-debug-agent
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -691,7 +691,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -699,8 +700,7 @@ jobs:
         package_path: packages/rocm/rocm-bandwidth-test
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocm-bandwidth-test
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -741,7 +741,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -749,8 +750,7 @@ jobs:
         package_path: packages/rocm/rocm-gdb
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocm-gdb
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -790,7 +790,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -798,8 +799,7 @@ jobs:
         package_path: packages/rocm/rocrand
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocrand
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -841,7 +841,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -849,8 +850,7 @@ jobs:
         package_path: packages/rocm/hipblas
     - name: Post-build commands
       run:
-      - cd packages/rocm/hipblas
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -891,7 +891,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -899,8 +900,7 @@ jobs:
         package_path: packages/rocm/rocm-device-libs
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocm-device-libs
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -942,7 +942,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -950,8 +951,7 @@ jobs:
         package_path: packages/rocm/hsa-rocr
     - name: Post-build commands
       run:
-      - cd packages/rocm/hsa-rocr
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -992,7 +992,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -1000,8 +1001,7 @@ jobs:
         package_path: packages/rocm/rccl
     - name: Post-build commands
       run:
-      - cd packages/rocm/rccl
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -1045,7 +1045,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -1053,8 +1054,7 @@ jobs:
         package_path: packages/rocm/rocm-language-runtime
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocm-language-runtime
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -1093,7 +1093,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -1101,8 +1102,7 @@ jobs:
         package_path: packages/rocm/hsakmt-roct
     - name: Post-build commands
       run:
-      - cd packages/rocm/hsakmt-roct
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -1142,7 +1142,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -1150,8 +1151,7 @@ jobs:
         package_path: packages/rocm/miopengemm
     - name: Post-build commands
       run:
-      - cd packages/rocm/miopengemm
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -1195,7 +1195,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -1203,8 +1204,7 @@ jobs:
         package_path: packages/rocm/miopen-opencl
     - name: Post-build commands
       run:
-      - cd packages/rocm/miopen-opencl
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -1245,7 +1245,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -1253,8 +1254,7 @@ jobs:
         package_path: packages/rocm/hipsolver
     - name: Post-build commands
       run:
-      - cd packages/rocm/hipsolver
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -1296,7 +1296,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -1304,8 +1305,7 @@ jobs:
         package_path: packages/rocm/comgr
     - name: Post-build commands
       run:
-      - cd packages/rocm/comgr
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -1345,7 +1345,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -1353,8 +1354,7 @@ jobs:
         package_path: packages/hip/hipmagma
     - name: Post-build commands
       run:
-      - cd packages/hip/hipmagma
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -1399,7 +1399,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -1407,8 +1408,7 @@ jobs:
         package_path: packages/rocm/rocalution
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocalution
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -1449,7 +1449,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -1457,8 +1458,7 @@ jobs:
         package_path: packages/rocm/rocm-validation-suite
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocm-validation-suite
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -1498,7 +1498,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -1506,8 +1507,7 @@ jobs:
         package_path: packages/rocm/rocm-smi-lib
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocm-smi-lib
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -1547,7 +1547,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -1555,8 +1556,7 @@ jobs:
         package_path: packages/rocm/hipify-clang
     - name: Post-build commands
       run:
-      - cd packages/rocm/hipify-clang
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -1595,7 +1595,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -1603,8 +1604,7 @@ jobs:
         package_path: packages/aur/half
     - name: Post-build commands
       run:
-      - cd packages/aur/half
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -1645,7 +1645,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -1653,8 +1654,7 @@ jobs:
         package_path: packages/rocm/hipsparse
     - name: Post-build commands
       run:
-      - cd packages/rocm/hipsparse
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -1693,7 +1693,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -1701,8 +1702,7 @@ jobs:
         package_path: packages/rocm/rocm-llvm-alt-bin
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocm-llvm-alt-bin
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -1743,7 +1743,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -1751,8 +1752,7 @@ jobs:
         package_path: packages/rocm/rocprim
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocprim
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -1794,7 +1794,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -1802,8 +1803,7 @@ jobs:
         package_path: packages/rocm/mivisionx
     - name: Post-build commands
       run:
-      - cd packages/rocm/mivisionx
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -1844,7 +1844,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -1852,8 +1853,7 @@ jobs:
         package_path: packages/rocm/atmi
     - name: Post-build commands
       run:
-      - cd packages/rocm/atmi
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -1894,7 +1894,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -1902,8 +1903,7 @@ jobs:
         package_path: packages/rocm/hipfort
     - name: Post-build commands
       run:
-      - cd packages/rocm/hipfort
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -1961,7 +1961,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -1969,8 +1970,7 @@ jobs:
         package_path: packages/rocm/rocm-hip-sdk
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocm-hip-sdk
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -2012,7 +2012,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -2020,8 +2021,7 @@ jobs:
         package_path: packages/rocm/rocm-dbgapi
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocm-dbgapi
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -2170,7 +2170,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -2178,8 +2179,7 @@ jobs:
         package_path: packages/rocm/hipcub
     - name: Post-build commands
       run:
-      - cd packages/rocm/hipcub
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -2222,7 +2222,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -2230,8 +2231,7 @@ jobs:
         package_path: packages/rocm/rocm-opencl-runtime
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocm-opencl-runtime
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -2273,7 +2273,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -2281,8 +2282,7 @@ jobs:
         package_path: packages/rocm/rocwmma
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocwmma
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -2324,7 +2324,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -2332,8 +2333,7 @@ jobs:
         package_path: packages/rocm/hip-runtime-amd
     - name: Post-build commands
       run:
-      - cd packages/rocm/hip-runtime-amd
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -2372,7 +2372,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -2380,8 +2381,7 @@ jobs:
         package_path: packages/aur/blaze
     - name: Post-build commands
       run:
-      - cd packages/aur/blaze
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -2421,7 +2421,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -2429,8 +2430,7 @@ jobs:
         package_path: packages/rocm/rocm-llvm-mlir
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocm-llvm-mlir
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -2472,7 +2472,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -2480,8 +2481,7 @@ jobs:
         package_path: packages/rocm/rocsolver
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocsolver
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -2521,7 +2521,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -2529,8 +2530,7 @@ jobs:
         package_path: packages/rocm/rocfft
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocfft
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -2569,7 +2569,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -2577,8 +2578,7 @@ jobs:
         package_path: packages/rocm/rocm-llvm
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocm-llvm
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -2630,7 +2630,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -2638,8 +2639,7 @@ jobs:
         package_path: packages/rocm/rocm-hip-libraries
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocm-hip-libraries
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -2678,7 +2678,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -2686,8 +2687,7 @@ jobs:
         package_path: packages/rocm/rocm-cmake
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocm-cmake
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -2728,7 +2728,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -2736,8 +2737,7 @@ jobs:
         package_path: packages/rocm/hipfft
     - name: Post-build commands
       run:
-      - cd packages/rocm/hipfft
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -2781,7 +2781,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -2789,8 +2790,7 @@ jobs:
         package_path: packages/rocm/migraphx
     - name: Post-build commands
       run:
-      - cd packages/rocm/migraphx
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -2836,7 +2836,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -2844,8 +2845,7 @@ jobs:
         package_path: packages/rocm/rocm-developer-tools
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocm-developer-tools
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -2886,7 +2886,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -2894,8 +2895,7 @@ jobs:
         package_path: packages/rocm/openmp-extras
     - name: Post-build commands
       run:
-      - cd packages/rocm/openmp-extras
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -2937,7 +2937,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -2945,8 +2946,7 @@ jobs:
         package_path: packages/rocm/rocthrust
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocthrust
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -2988,7 +2988,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -2996,8 +2997,7 @@ jobs:
         package_path: packages/rocm/rocm-clang-ocl
     - name: Post-build commands
       run:
-      - cd packages/rocm/rocm-clang-ocl
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -3036,7 +3036,8 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: []
+      run:
+      - echo "no pre-build commands"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
@@ -3044,8 +3045,7 @@ jobs:
         package_path: packages/aur/python-cppheaderparser
     - name: Post-build commands
       run:
-      - cd packages/aur/python-cppheaderparser
-      - echo "no pre-build commands"
+      - echo "no post-build commands"
       shell: bash
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
