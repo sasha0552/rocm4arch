@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from yaml import dump
+from yaml import add_representer, dump
 from hashlib import sha1
 
 from template.job import job_template
@@ -37,7 +37,19 @@ def obfuscate_packages(packages, names):
 
 #####
 
+def str_presenter(dumper, data):
+    if len(data.splitlines()) > 1:
+        return dumper.represent_scalar('tag:yaml.org,2002:str', data, style='|')
+
+    return dumper.represent_scalar('tag:yaml.org,2002:str', data)
+
+#####
+
 if __name__ == "__main__":
+    add_representer(str, str_presenter)
+
+    #####
+
     config = Config("config.yml")
 
     #####
@@ -98,6 +110,11 @@ if __name__ == "__main__":
             post_build_commands.insert(0, "cd {}".format(path))
         else:
             post_build_commands.insert(0, "echo \"no post-build commands\"")
+
+        #####
+
+        pre_build_commands = "\n".join(pre_build_commands)
+        post_build_commands = "\n".join(post_build_commands)
 
         #####
 
