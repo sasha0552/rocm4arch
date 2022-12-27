@@ -92,7 +92,7 @@ if __name__ == "__main__":
 
         for key in gpg_keys:
             pre_build_commands.insert(0,
-                "su user --command {}".format(
+                'su user --command "{}"'.format(
                     "gpg --recv-keys {}".format(
                         key
                     )
