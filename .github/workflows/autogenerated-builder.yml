@@ -296,7 +296,7 @@ jobs:
       image: archlinux
     name: python-torchvision-rocm
     needs:
-    - _0cefeea4b9a0aad23a0b2399c3c868c50751c674
+    - _4a56ea68f75ad7e252f6d2afa655faf9aa2e818b
     - _8c6a53cb558fd45a5dd0175f17db6559f446a0d2
     - _9bf3b1835e86f1fdf32f61123fdf6b43bc70f559
     runs-on: self-hosted
@@ -2002,9 +2002,9 @@ jobs:
       image: archlinux
     name: python-pytorch-rocm
     needs:
-    - _0cefeea4b9a0aad23a0b2399c3c868c50751c674
     - _122aa88f9b27c10c24a74d018b16dc5c232408c1
     - _409ce88da61effeee5761512de8cc48b95ec9ef9
+    - _4a56ea68f75ad7e252f6d2afa655faf9aa2e818b
     - _5d06347ea7ec7fadb56280fb0cb7c38aa9f953d3
     - _8c6a53cb558fd45a5dd0175f17db6559f446a0d2
     runs-on: self-hosted
@@ -2443,7 +2443,7 @@ jobs:
       image: archlinux
     name: rocm-llvm
     needs: []
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
@@ -2483,7 +2483,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-    timeout-minutes: 360
+    timeout-minutes: 1444
   _caf2486bcd7c1a1426fc75178ec0c7e9f7d325ee:
     container:
       image: archlinux
@@ -2642,7 +2642,7 @@ jobs:
       image: archlinux
     name: migraphx
     needs:
-    - _0cefeea4b9a0aad23a0b2399c3c868c50751c674
+    - _4a56ea68f75ad7e252f6d2afa655faf9aa2e818b
     - _6dbdd59ab542c91f19905b4d8672b5320dcba285
     - _aef61c50cab21921d0de1950fbaa0a9bcfd801d5
     - _b4bd8fc766694c3c56f9333533ad4a4c18c0b384
