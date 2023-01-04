@@ -5,15 +5,84 @@ runs-on: ubuntu-latest
 timeout: 360
 
 overrides:
-    guile2.0:
+    #####
+    # ALREADY IN COMMUNITY-TESTING
+
+    comgr:
         build: false
+
+    composable-kernel:
+        build: false
+
+    hip-runtime-amd:
+        build: false
+
+    hipcub:
+        build: false
+
+    hipfft:
+        build: false
+
+    hipsparse:
+        build: false
+
+    hsa-rocr:
+        build: false
+
+    hsakmt-roct:
+        build: false
+
+    python-cppheaderparser:
+        build: false
+
+    rocalution:
+        build: false
+
+    rocblas:
+        build: false
+
+    rocfft:
+        build: false
+
+    rocm-clang-ocl:
+        build: false
+
+    rocm-cmake:
+        build: false
+
+    rocm-device-libs:
+        build: false
+
+    rocm-llvm:
+        build: false
+
+    rocm-opencl-runtime:
+        build: false
+
+    rocm-smi-lib:
+        build: false
+
+    rocminfo:
+        build: false
+
+    rocprim:
+        build: false
+
+    rocrand:
+        build: false
+
+    rocsparse:
+        build: false
+
+    rocthrust:
+        build: false
+
+    #####
+    # SELF-HOSTED
 
     hipmagma:
         runs-on: self-hosted
         timeout: 1440
-
-    openmp-extras:
-        build: false
 
     python-pytorch-rocm:
         runs-on: self-hosted
@@ -34,24 +103,6 @@ overrides:
     rccl:
         runs-on: self-hosted
         timeout: 1440
-
-    rocblas:
-        runs-on: self-hosted
-        timeout: 1440
-
-    rocfft:
-        runs-on: self-hosted
-        timeout: 1440
-
-    rocm-developer-tools:
-        build: false
-
-    rocm-gdb:
-        build: false
-
-    rocm-llvm:
-        runs-on: self-hosted
-        timeout: 1444
 
     rocsolver:
         runs-on: self-hosted

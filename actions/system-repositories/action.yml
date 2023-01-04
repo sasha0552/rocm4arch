@@ -4,7 +4,19 @@ runs:
   using: "composite"
 
   steps:
-    - name: Install repository
+    - name: Enable testing repository
+      shell: bash
+      run: |-
+        sed "s/#\[testing\]/\[testing\]/" -i pacman.conf
+        sed "0,/#Include = \/etc\/pacman.d\/mirrorlist/ s//Include = \/etc\/pacman.d\/mirrorlist/" -i pacman.conf
+
+    - name: Enable community-testing repository
+      shell: bash
+      run: |-
+        sed "s/#\[community-testing\]/\[community-testing\]/" -i pacman.conf
+        sed "0,/#Include = \/etc\/pacman.d\/mirrorlist/ s//Include = \/etc\/pacman.d\/mirrorlist/" -i pacman.conf
+
+    - name: Install local repository
       shell: bash
       run: |-
         echo "[localrepo]"                     >> /etc/pacman.conf
@@ -14,3 +26,11 @@ runs:
     - name: Refresh package databases
       shell: bash
       run: pacman --sync --noconfirm --refresh
+
+    - name: Upgrade system
+      shell: bash
+      run: pacman --sync --noconfirm --sysupgrade
+
+    - name: Remove outdated packages from cache
+      shell: bash
+      run: paccache --keep 1 --remove
