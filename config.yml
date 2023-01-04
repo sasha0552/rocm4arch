@@ -96,6 +96,7 @@ overrides:
     python-torchvision-rocm:
         runs-on: self-hosted
         timeout: 1440
+        build: false
 
         pre-build-commands:
             - echo 'export ROCM_HOME=/opt/rocm' >> PKGBUILD

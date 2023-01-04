@@ -94,57 +94,6 @@ jobs:
       with:
         path: packages/**/*.pkg.tar.zst
     timeout-minutes: 360
-  _11fefe0ec0c4c6335917fb0d192ae529c368e293:
-    container:
-      image: archlinux
-    name: python-torchvision-rocm
-    needs:
-    - _4a56ea68f75ad7e252f6d2afa655faf9aa2e818b
-    - _8c6a53cb558fd45a5dd0175f17db6559f446a0d2
-    - _9bf3b1835e86f1fdf32f61123fdf6b43bc70f559
-    runs-on: self-hosted
-    steps:
-    - name: System cleanup
-      uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Pre-build commands
-      run: |-
-        cd packages/pytorch/python-torchvision-rocm
-        echo 'export ROCM_HOME=/opt/rocm' >> PKGBUILD
-      shell: bash
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/pytorch/python-torchvision-rocm
-    - name: Post-build commands
-      run: echo "no post-build commands"
-      shell: bash
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-    timeout-minutes: 1440
   _122aa88f9b27c10c24a74d018b16dc5c232408c1:
     container:
       image: archlinux
