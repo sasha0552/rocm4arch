@@ -84,6 +84,13 @@ overrides:
         runs-on: self-hosted
         timeout: 1440
 
+    linux-zen-custom:
+        gpg:
+            - ABAF11C65A2970B130ABE3C479BE3E4300411886
+            - 647F28654894E3BD457199BE38DBBDC86092693E
+            - A2FF3A36AAA56654109064AB19802F8B0D70FC30
+            - C5ADB4F3FEBBCE27A3E54D7D9AE4078033F8024D
+
     python-pytorch-rocm:
         runs-on: self-hosted
         timeout: 1440
