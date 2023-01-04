@@ -150,7 +150,7 @@ jobs:
     needs:
     - _7d1b3ca7613758fe020a4b99f271a84622a27e89
     - _aef61c50cab21921d0de1950fbaa0a9bcfd801d5
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
@@ -190,7 +190,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-    timeout-minutes: 1440
+    timeout-minutes: 360
   _0bb510680d4ff5928c7d11bff3529ecd4a8530af:
     container:
       image: archlinux
@@ -250,7 +250,7 @@ jobs:
     - _b534ca08e28cfb728000fa7e78e47a03aaf2e569
     - _d3252df6d27ce9149a5e712f2a844b3d6265de45
     - _f8b48ae0649081ad36aa3c46bf3e53f56ac40c7f
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
@@ -290,7 +290,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-    timeout-minutes: 1440
+    timeout-minutes: 360
   _11fefe0ec0c4c6335917fb0d192ae529c368e293:
     container:
       image: archlinux
@@ -671,54 +671,6 @@ jobs:
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/rocm-bandwidth-test
-    - name: Post-build commands
-      run: echo "no post-build commands"
-      shell: bash
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-    timeout-minutes: 360
-  _325902bab95877d0fd551396a693cc55a02c28d3:
-    container:
-      image: archlinux
-    name: rocm-gdb
-    needs:
-    - _96ca0d9340dcae99c53330e86c2070169b9f0110
-    - _96d5a0cf3d7dc708be22c901eae47a7e25dded38
-    runs-on: ubuntu-latest
-    steps:
-    - name: System cleanup
-      uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Pre-build commands
-      run: echo "no pre-build commands"
-      shell: bash
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocm-gdb
     - name: Post-build commands
       run: echo "no post-build commands"
       shell: bash
@@ -1122,7 +1074,7 @@ jobs:
     - _b534ca08e28cfb728000fa7e78e47a03aaf2e569
     - _c93582851365ec3545632420e423c17fe9905336
     - _d3252df6d27ce9149a5e712f2a844b3d6265de45
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
@@ -1162,7 +1114,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-    timeout-minutes: 1440
+    timeout-minutes: 360
   _4e054059e9a63cbbf6f4b010d2fd5baff9c0dca2:
     container:
       image: archlinux
@@ -1948,55 +1900,6 @@ jobs:
       with:
         path: packages/**/*.pkg.tar.zst
     timeout-minutes: 360
-  _96d5a0cf3d7dc708be22c901eae47a7e25dded38:
-    container:
-      image: archlinux
-    name: guile2.0
-    needs: []
-    runs-on: ubuntu-latest
-    steps:
-    - name: System cleanup
-      uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Pre-build commands
-      run: |-
-        cd packages/aur/guile2.0
-        su user --command "gpg --recv-keys FF478FB264DE32EC296725A3DDC0F5358812F8F2"
-        su user --command "gpg --recv-keys 3CE464558A84FDC69DB40CFB090B11993D9AEBB5"
-      shell: bash
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/aur/guile2.0
-    - name: Post-build commands
-      run: echo "no post-build commands"
-      shell: bash
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-    timeout-minutes: 360
   _9bf3b1835e86f1fdf32f61123fdf6b43bc70f559:
     container:
       image: archlinux
@@ -2301,7 +2204,7 @@ jobs:
     name: rocm-llvm-mlir
     needs:
     - _aef61c50cab21921d0de1950fbaa0a9bcfd801d5
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
@@ -2341,7 +2244,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-    timeout-minutes: 1444
+    timeout-minutes: 360
   _b6a0c3fb1908524df49f6d110c0667ed72319a23:
     container:
       image: archlinux
@@ -2680,107 +2583,6 @@ jobs:
       uses: sasha0552/rocm4arch/actions/package-build@master
       with:
         package_path: packages/rocm/migraphx
-    - name: Post-build commands
-      run: echo "no post-build commands"
-      shell: bash
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-    timeout-minutes: 360
-  _e376a2d5ff430f1623012469dd762dae060a4e9d:
-    container:
-      image: archlinux
-    name: rocm-developer-tools
-    needs:
-    - _122aa88f9b27c10c24a74d018b16dc5c232408c1
-    - _12fa5c7c35b1e0745f91e08a605bca224f9492a3
-    - _1a6f85e1702974c113185f8eab5f574997db4ce7
-    - _26da8478bead779fb3c3c96d7b28d9120136cdf2
-    - _325902bab95877d0fd551396a693cc55a02c28d3
-    - _8c6a53cb558fd45a5dd0175f17db6559f446a0d2
-    - _96ca0d9340dcae99c53330e86c2070169b9f0110
-    runs-on: ubuntu-latest
-    steps:
-    - name: System cleanup
-      uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Pre-build commands
-      run: echo "no pre-build commands"
-      shell: bash
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/rocm-developer-tools
-    - name: Post-build commands
-      run: echo "no post-build commands"
-      shell: bash
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-    timeout-minutes: 360
-  _e7894b6a3f80ab182945382bcfaec278253fcc74:
-    container:
-      image: archlinux
-    name: openmp-extras
-    needs:
-    - _37efa424e55fce594838a13f45fa12f103ef3ce3
-    - _c93582851365ec3545632420e423c17fe9905336
-    runs-on: ubuntu-latest
-    steps:
-    - name: System cleanup
-      uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Pre-build commands
-      run: echo "no pre-build commands"
-      shell: bash
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/rocm/openmp-extras
     - name: Post-build commands
       run: echo "no post-build commands"
       shell: bash
