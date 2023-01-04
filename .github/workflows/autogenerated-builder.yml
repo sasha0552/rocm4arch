@@ -1137,52 +1137,6 @@ jobs:
       with:
         path: packages/**/*.pkg.tar.zst
     timeout-minutes: 360
-  _96d5a0cf3d7dc708be22c901eae47a7e25dded38:
-    container:
-      image: archlinux
-    name: guile2.0
-    needs: []
-    runs-on: ubuntu-latest
-    steps:
-    - name: System cleanup
-      uses: sasha0552/rocm4arch/actions/system-cleanup@master
-    - name: Upgrade system
-      uses: sasha0552/rocm4arch/actions/system-upgrade@master
-    - name: Install required packages
-      uses: sasha0552/rocm4arch/actions/system-packages@master
-      with:
-        additional: base-devel
-    - name: Create users
-      uses: sasha0552/rocm4arch/actions/system-users@master
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: ~/artifacts/
-    - name: Configure makepkg
-      uses: sasha0552/rocm4arch/actions/system-makepkg@master
-    - name: Create local package repository
-      uses: sasha0552/rocm4arch/actions/system-localrepo@master
-    - name: Install package repositories
-      uses: sasha0552/rocm4arch/actions/system-repositories@master
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Pre-build commands
-      run: echo "no pre-build commands"
-      shell: bash
-    - name: Build package
-      uses: sasha0552/rocm4arch/actions/package-build@master
-      with:
-        package_path: packages/aur/guile2.0
-    - name: Post-build commands
-      run: echo "no post-build commands"
-      shell: bash
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: packages/**/*.pkg.tar.zst
-    timeout-minutes: 360
   _9bf3b1835e86f1fdf32f61123fdf6b43bc70f559:
     container:
       image: archlinux

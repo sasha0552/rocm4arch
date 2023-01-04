@@ -82,6 +82,15 @@ if __name__ == "__main__":
 
         #####
 
+        obfuscated_name = names[name]
+
+        #####
+
+        if obfuscated_name in depends:
+            depends.remove(obfuscated_name)
+
+        #####
+
         runs_on = config.runs_on(name)
         timeout = config.timeout(name)
         pre_build_commands = config.pre_build_commands(name)
@@ -118,7 +127,7 @@ if __name__ == "__main__":
 
         #####
 
-        jobs[names[name]] = job_template(name, path, depends, runs_on, timeout, pre_build_commands, post_build_commands)
+        jobs[obfuscated_name] = job_template(name, path, depends, runs_on, timeout, pre_build_commands, post_build_commands)
 
     #####
 
