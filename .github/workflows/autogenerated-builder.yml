@@ -1394,7 +1394,9 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: echo "no pre-build commands"
+      run: |-
+        cd packages/rocm/rocm-smi-lib
+        sed '/cd "$_dirname"/a\    sed "s/# Generate Doxygen documentation/return()/" -i rocm_smi/CMakeLists.txt' -i PKGBUILD
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master

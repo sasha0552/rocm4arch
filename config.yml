@@ -53,6 +53,10 @@ overrides:
         runs-on: self-hosted
         timeout: 1444
 
+    rocm-smi-lib:
+        pre-build-commands:
+            - sed '/cd "$_dirname"/a\    sed "s/# Generate Doxygen documentation/return()/" -i rocm_smi/CMakeLists.txt' -i PKGBUILD
+
     rocsolver:
         runs-on: self-hosted
         timeout: 1440
