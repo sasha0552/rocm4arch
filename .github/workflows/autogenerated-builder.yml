@@ -1273,10 +1273,10 @@ jobs:
     - name: Pre-build commands
       run: |-
         cd packages/kernel/linux-zen-custom
-        su user --command "gpg --import $PWD/keys/pgp/ABAF11C65A2970B130ABE3C479BE3E4300411886"
-        su user --command "gpg --import $PWD/keys/pgp/647F28654894E3BD457199BE38DBBDC86092693E"
-        su user --command "gpg --import $PWD/keys/pgp/A2FF3A36AAA56654109064AB19802F8B0D70FC30"
-        su user --command "gpg --import $PWD/keys/pgp/C5ADB4F3FEBBCE27A3E54D7D9AE4078033F8024D"
+        su user --command "gpg --import $PWD/keys/pgp/ABAF11C65A2970B130ABE3C479BE3E4300411886.asc"
+        su user --command "gpg --import $PWD/keys/pgp/647F28654894E3BD457199BE38DBBDC86092693E.asc"
+        su user --command "gpg --import $PWD/keys/pgp/A2FF3A36AAA56654109064AB19802F8B0D70FC30.asc"
+        su user --command "gpg --import $PWD/keys/pgp/C5ADB4F3FEBBCE27A3E54D7D9AE4078033F8024D.asc"
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master
