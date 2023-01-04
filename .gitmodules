@@ -18,6 +18,10 @@
     path = packages/hip/hipmagma
     url = https://github.com/rocm-arch/hipmagma.git
 
+[submodule "packages/kernel/linux-zen-custom"]
+    path = packages/kernel/linux-zen-custom
+    url = https://github.com/sasha0552/linux-zen-custom.git
+
 [submodule "packages/pytorch/python-pytorch-rocm"]
     path = packages/pytorch/python-pytorch-rocm
     url = https://github.com/rocm-arch/python-pytorch-rocm.git
