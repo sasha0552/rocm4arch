@@ -150,7 +150,7 @@ jobs:
     needs:
     - _7d1b3ca7613758fe020a4b99f271a84622a27e89
     - _aef61c50cab21921d0de1950fbaa0a9bcfd801d5
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
@@ -190,7 +190,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-    timeout-minutes: 360
+    timeout-minutes: 1440
   _0bb510680d4ff5928c7d11bff3529ecd4a8530af:
     container:
       image: archlinux
@@ -250,7 +250,7 @@ jobs:
     - _b534ca08e28cfb728000fa7e78e47a03aaf2e569
     - _d3252df6d27ce9149a5e712f2a844b3d6265de45
     - _f8b48ae0649081ad36aa3c46bf3e53f56ac40c7f
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
@@ -290,7 +290,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-    timeout-minutes: 360
+    timeout-minutes: 1440
   _11fefe0ec0c4c6335917fb0d192ae529c368e293:
     container:
       image: archlinux
@@ -1122,7 +1122,7 @@ jobs:
     - _b534ca08e28cfb728000fa7e78e47a03aaf2e569
     - _c93582851365ec3545632420e423c17fe9905336
     - _d3252df6d27ce9149a5e712f2a844b3d6265de45
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
@@ -1162,7 +1162,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-    timeout-minutes: 360
+    timeout-minutes: 1440
   _4e054059e9a63cbbf6f4b010d2fd5baff9c0dca2:
     container:
       image: archlinux
@@ -1266,7 +1266,7 @@ jobs:
     name: hipmagma
     needs:
     - _8c6a53cb558fd45a5dd0175f17db6559f446a0d2
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
@@ -1306,7 +1306,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-    timeout-minutes: 360
+    timeout-minutes: 1440
   _64c2ba174041c4754e1de6ee3b680459322be83a:
     container:
       image: archlinux
@@ -2301,7 +2301,7 @@ jobs:
     name: rocm-llvm-mlir
     needs:
     - _aef61c50cab21921d0de1950fbaa0a9bcfd801d5
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
     - name: System cleanup
       uses: sasha0552/rocm4arch/actions/system-cleanup@master
@@ -2341,7 +2341,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: packages/**/*.pkg.tar.zst
-    timeout-minutes: 360
+    timeout-minutes: 1444
   _b6a0c3fb1908524df49f6d110c0667ed72319a23:
     container:
       image: archlinux
