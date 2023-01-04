@@ -326,7 +326,9 @@ jobs:
       with:
         submodules: true
     - name: Pre-build commands
-      run: echo "no pre-build commands"
+      run: |-
+        cd packages/pytorch/python-torchvision-rocm
+        echo 'export ROCM_HOME=/opt/rocm' >> PKGBUILD
       shell: bash
     - name: Build package
       uses: sasha0552/rocm4arch/actions/package-build@master

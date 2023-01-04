@@ -28,6 +28,9 @@ overrides:
         runs-on: self-hosted
         timeout: 1440
 
+        pre-build-commands:
+            - echo 'export ROCM_HOME=/opt/rocm' >> PKGBUILD
+
     rccl:
         runs-on: self-hosted
         timeout: 1440
