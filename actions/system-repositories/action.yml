@@ -7,14 +7,14 @@ runs:
     - name: Enable testing repository
       shell: bash
       run: |-
-        sed "s/#\[testing\]/\[testing\]/" -i pacman.conf
-        sed "0,/#Include = \/etc\/pacman.d\/mirrorlist/ s//Include = \/etc\/pacman.d\/mirrorlist/" -i pacman.conf
+        sed "s/#\[testing\]/\[testing\]/" -i /etc/pacman.conf
+        sed "0,/#Include = \/etc\/pacman.d\/mirrorlist/ s//Include = \/etc\/pacman.d\/mirrorlist/" -i /etc/pacman.conf
 
     - name: Enable community-testing repository
       shell: bash
       run: |-
-        sed "s/#\[community-testing\]/\[community-testing\]/" -i pacman.conf
-        sed "0,/#Include = \/etc\/pacman.d\/mirrorlist/ s//Include = \/etc\/pacman.d\/mirrorlist/" -i pacman.conf
+        sed "s/#\[community-testing\]/\[community-testing\]/" -i /etc/pacman.conf
+        sed "0,/#Include = \/etc\/pacman.d\/mirrorlist/ s//Include = \/etc\/pacman.d\/mirrorlist/" -i /etc/pacman.conf
 
     - name: Install local repository
       shell: bash
